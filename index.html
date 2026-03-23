@@ -1,0 +1,2615 @@
+<!DOCTYPE html><!-- v3.1 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="theme-color" content="#0a0e1a"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>Nilansh Creation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0a0e1a;--sf:#111827;--s2:#1a2236;--s3:#1f2d45;--ac:#f59e0b;--gr:#10b981;--rd:#ef4444;--or:#f97316;--bl:#3b82f6;--t1:#f1f5f9;--t2:#94a3b8;--t3:#64748b;--bd:#1e2d45;--bd2:#2a3f5f;--r:14px;}
+body.light input[type="date"]{color-scheme:light}
+input[type="date"]{color-scheme:dark}
+input.dr-date{color-scheme:dark}
+body.light input.dr-date{color-scheme:light}
+body.light{--bg:#f0f4f8;--sf:#fff;--s2:#e8edf5;--s3:#dde4ef;--t1:#0f172a;--t2:#475569;--t3:#94a3b8;--bd:#cbd5e1;--bd2:#94a3b8;}
+html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t1);overflow:hidden}
+/* PIN */
+#PIN{position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at 30% 20%,#1a2744,#0a0e1a);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+body.light #PIN{background:radial-gradient(ellipse at 30% 20%,#1e3a5f,#0f172a)}
+.plogo{width:80px;height:80px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:#0a0e1a;font-family:Georgia,serif;box-shadow:0 12px 40px rgba(245,158,11,.4);margin-bottom:16px}
+.ptitle{font-size:22px;font-weight:900;color:#fff;margin-bottom:4px}
+.psub{font-size:11px;color:#64748b;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+.pdots{display:flex;gap:14px;margin-bottom:10px}
+.pdot{width:16px;height:16px;border-radius:50%;border:2px solid #2a3f5f;background:transparent;transition:all .2s}
+.pdot.fill{background:#f59e0b;border-color:#f59e0b;box-shadow:0 0 8px rgba(245,158,11,.5)}
+.perr{color:#ef4444;font-size:13px;min-height:20px;margin-bottom:10px;text-align:center}
+.ppad{display:grid;grid-template-columns:repeat(3,78px);gap:10px}
+.pk{height:62px;background:#111827;border:1.5px solid #1e2d45;border-radius:14px;font-size:22px;font-weight:700;cursor:pointer;color:#f1f5f9;transition:all .1s;outline:none;-webkit-user-select:none;user-select:none}
+.pk:active{background:#1f2d45;border-color:#f59e0b;transform:scale(.93)}
+.pk.del{font-size:16px;color:#94a3b8}
+/* APP */
+#APP{position:fixed;inset:0;display:flex;flex-direction:column;background:var(--bg)}
+/* HEADER */
+#HDR{background:linear-gradient(135deg,#0d1828,#162240);border-bottom:1px solid var(--bd);padding:10px 14px 8px;flex-shrink:0}
+body.light #HDR{background:linear-gradient(135deg,#1e3a5f,#1e40af)}
+.htop{display:flex;align-items:center;gap:10px}
+.hlogo{width:36px;height:36px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#0a0e1a;font-family:Georgia,serif;box-shadow:0 4px 12px rgba(245,158,11,.4);flex-shrink:0;cursor:pointer}
+.hnames{flex:1}.hname{font-size:16px;font-weight:900;color:#fff}.hsub{font-size:9px;color:#f59e0b;letter-spacing:1px;text-transform:uppercase}
+#TBTN{background:linear-gradient(135deg,#f59e0b,#d97706);border:none;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:#0a0e1a;box-shadow:0 3px 10px rgba(245,158,11,.5);flex-shrink:0}
+.stats{display:flex;gap:8px;margin-top:8px}
+.stat{flex:1;background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:6px 8px;text-align:center;cursor:pointer;transition:border-color .15s}.stat:hover{border-color:var(--ac)}
+.sv{font-size:19px;font-weight:800;color:var(--ac);line-height:1}.sl{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-top:1px}
+.sv.g{color:var(--gr)}.sv.o{color:var(--or)}
+/* CONTENT */
+#CNT{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 12px 90px}
+/* NAV */
+#NAV{display:flex;flex-direction:row;background:#0d1526;border-top:1px solid var(--bd);flex-shrink:0;height:48px}
+body.light #NAV{background:#1e3a5f}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px 4px;background:none;border:none;color:var(--t3);font-size:10px;gap:2px;cursor:pointer;transition:color .15s;outline:none;height:48px}
+.nb.on{color:var(--ac)}
+/* FAB */
+#FAB{position:fixed;bottom:58px;right:14px;width:50px;height:50px;border-radius:50%;border:none;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(245,158,11,.5);cursor:pointer;z-index:100}
+/* SEARCH */
+.sbar{position:relative;margin-bottom:10px}
+.sbar input{width:100%;background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:10px 12px 10px 38px;color:var(--t1);font-size:14px;outline:none;font-family:inherit}
+.sbar input:focus{border-color:var(--ac)}.sbar input::placeholder{color:var(--t3)}
+.sico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t3)}
+.chips{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:5px 11px;border-radius:18px;border:1px solid var(--bd);background:var(--sf);color:var(--t2);font-size:12px;cursor:pointer;font-family:inherit}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#0a0e1a;font-weight:700}
+.chip.gon{background:var(--gr);border-color:var(--gr);color:#fff;font-weight:700}
+.chip.oon{background:var(--or);border-color:var(--or);color:#fff;font-weight:700}
+/* CARDS */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);margin-bottom:10px;overflow:hidden;cursor:pointer;transition:all .18s}.card:hover{border-color:var(--ac);box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.card.pending{border-left:3px solid var(--or)}.card.partial{border-left:3px solid var(--ac)}.card.received{border-left:3px solid var(--gr)}
+.card.ksel{box-shadow:0 0 0 2px var(--ac);border-color:var(--ac)}
+.ctop{padding:14px 14px 0;display:flex;justify-content:space-between;align-items:flex-start}
+.cparty{font-size:17px;font-weight:800}.cmeta{font-size:12px;color:var(--t3);margin-top:4px}
+.bdg{font-size:10px;padding:3px 8px;border-radius:18px;font-weight:700;text-transform:uppercase;flex-shrink:0}
+.bdg.p{background:rgba(249,115,22,.15);color:var(--or);border:1px solid rgba(249,115,22,.3)}
+.bdg.r{background:rgba(16,185,129,.15);color:var(--gr);border:1px solid rgba(16,185,129,.3)}
+.bdg.x{background:rgba(245,158,11,.15);color:var(--ac);border:1px solid rgba(245,158,11,.3)}
+.cbot{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;background:var(--s2);margin-top:12px}
+.cval{font-size:15px;font-weight:800}.cacts{display:flex;gap:5px}
+.ibtn{width:28px;height:28px;border-radius:6px;border:1px solid var(--bd);background:var(--s3);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2)}
+/* OVERLAY */
+.ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.78);display:flex;align-items:flex-end;backdrop-filter:blur(4px)}
+.sh{width:100%;max-width:600px;margin:0 auto;background:var(--sf);border-radius:18px 18px 0 0;max-height:94vh;display:flex;flex-direction:column;animation:sup .25s ease}
+@keyframes sup{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.drag{width:36px;height:4px;background:var(--bd2);border-radius:2px;margin:9px auto 0;flex-shrink:0}
+.shhdr{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd);flex-shrink:0}
+.shtit{font-size:17px;font-weight:800}.shbody{overflow-y:auto;flex:1;padding:14px;-webkit-overflow-scrolling:touch}
+.shfoot{padding:10px 14px;border-top:1px solid var(--bd);display:flex;gap:7px;flex-shrink:0}
+/* FORM */
+.fg{margin-bottom:13px;position:relative}
+.fl{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;display:block;font-weight:600}
+.fi{width:100%;background:var(--s2);border:1.5px solid var(--bd);border-radius:8px;padding:10px 11px;color:var(--t1);font-size:14px;outline:none;transition:border-color .2s;font-family:inherit}
+.fi:focus{border-color:var(--ac)}.fi::placeholder{color:var(--t3)}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sec{font-size:12px;font-weight:700;color:var(--ac);margin-bottom:9px;display:flex;align-items:center;gap:8px}
+.sec::after{content:'';flex:1;height:1px;background:var(--bd)}
+.icard{background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:16px;position:relative;margin-bottom:12px}
+.inum{position:absolute;top:-9px;left:12px;background:var(--ac);color:#0a0e1a;font-size:11px;font-weight:800;padding:2px 10px;border-radius:10px}
+.irm{position:absolute;top:7px;right:7px;width:22px;height:22px;border-radius:5px;border:none;background:rgba(239,68,68,.12);color:var(--rd);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.addb{width:100%;padding:10px;border-radius:8px;border:1.5px dashed var(--bd2);background:none;color:var(--ac);font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;margin-top:3px}
+/* AUTOCOMPLETE DROPDOWN */
+.acd{position:absolute;top:100%;left:0;right:0;z-index:500;background:var(--s3);border:1px solid var(--bd2);border-radius:8px;max-height:160px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.5);margin-top:2px;display:none}
+.acd.show{display:block}
+.acd div{padding:9px 12px;font-size:14px;cursor:pointer;border-bottom:1px solid var(--bd)}
+.acd div:last-child{border-bottom:none}
+.acd div.hi{background:rgba(245,158,11,.15);color:var(--ac)}
+/* BUTTONS */
+.btn{padding:11px 16px;border-radius:8px;border:none;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;flex:1;font-family:inherit}
+.btnp{background:linear-gradient(135deg,#f59e0b,#d97706);color:#0a0e1a}
+.btns{background:var(--s2);color:var(--t2);border:1px solid var(--bd)}
+.btnd{background:rgba(239,68,68,.1);color:var(--rd);border:1px solid rgba(239,68,68,.2)}
+.btno{background:rgba(249,115,22,.1);color:var(--or);border:1px solid rgba(249,115,22,.2)}
+/* DETAIL */
+.dparty{font-size:22px;font-weight:900;padding:14px 14px 0}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;padding:9px 14px 12px}
+.dchip{background:var(--s2);border:1px solid var(--bd);border-radius:7px;padding:4px 9px;font-size:12px;color:var(--t2)}
+.irow{background:var(--sf);border-radius:8px;padding:11px;margin-bottom:8px;border:1px solid var(--bd)}
+.irow.recv{border-color:rgba(16,185,129,.35)}
+.iname{font-weight:700;font-size:14px}
+.imeta{font-size:12px;color:var(--t2);margin-top:3px;display:flex;flex-wrap:wrap;gap:7px}
+.ival{color:var(--ac);font-weight:700}
+.rbtn{flex-shrink:0;padding:6px 10px;border-radius:7px;border:1px solid var(--bd2);background:var(--s2);color:var(--t3);font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit}
+.rbtn.yes{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.12);color:var(--gr)}
+.mkall{width:100%;padding:10px;border-radius:8px;border:1px solid var(--bd2);background:none;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:12px;font-family:inherit}
+.mkall.do{border-color:rgba(16,185,129,.3);color:var(--gr)}.mkall.undo{border-color:rgba(239,68,68,.3);color:var(--rd)}
+/* SUMMARY */
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.sc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px}
+.sc .sv2{font-size:21px;font-weight:800;color:var(--ac)}.sc .sl2{font-size:10px;color:var(--t3);margin-top:2px}
+.pc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px;margin-bottom:8px}
+.pname{font-size:15px;font-weight:800;margin-bottom:8px}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
+.ptag{border-radius:6px;padding:4px 8px;font-size:11px}
+.prog{height:4px;border-radius:2px;background:var(--s3);overflow:hidden;margin-top:2px}
+.progb{height:100%;border-radius:2px;background:linear-gradient(90deg,#10b981,#059669)}
+.prpct{font-size:10px;color:var(--t3);margin-top:2px;text-align:right}
+/* PROFILE */
+.profhdr{text-align:center;padding:20px 0 12px}
+.profavt{width:68px;height:68px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#0a0e1a;margin:0 auto 10px;font-family:Georgia,serif;box-shadow:0 10px 28px rgba(245,158,11,.4)}
+.profname{font-size:19px;font-weight:900}.profsub{font-size:11px;color:var(--t3);margin-top:3px;letter-spacing:.5px;text-transform:uppercase}
+.psec{font-size:12px;font-weight:700;color:var(--ac);margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+.psec::after{content:'';flex:1;height:1px;background:var(--bd)}
+.pbox{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:0 13px;margin-bottom:4px}
+.prow{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--bd)}
+.prow:last-child{border-bottom:none}
+.plbl{font-size:14px;font-weight:600}.psbl{font-size:11px;color:var(--t3);margin-top:2px}
+.pbtn{padding:7px 13px;border-radius:7px;border:1px solid var(--bd2);background:var(--s2);color:var(--t1);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.tog{width:44px;height:24px;border-radius:12px;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;border:none;outline:none}
+.tog::after{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:3px;left:3px;transition:left .2s}
+.tog.on{background:#f59e0b}.tog.on::after{left:23px}.tog.off{background:var(--bd2)}
+.helpcrd{background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:18px;text-align:center;margin-bottom:8px}
+.abtcrd{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px;text-align:center;margin-bottom:16px}
+.sctbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+.sctbl td{padding:6px 8px;border-bottom:1px solid var(--bd)}.sctbl td:first-child{font-weight:700;color:var(--ac);white-space:nowrap;width:42%}
+/* MISC */
+.empty{text-align:center;padding:50px 20px}
+.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--s3);border:1px solid var(--bd2);padding:9px 18px;border-radius:28px;font-size:13px;color:var(--t1);z-index:99999;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.5);animation:fto 2.5s ease forwards;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fto{0%{opacity:0;transform:translate(-50%,-8px)}12%{opacity:1;transform:translate(-50%,0)}80%{opacity:1}100%{opacity:0}}
+.cfm{position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px}
+.cfmbox{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--r);padding:22px;width:100%;max-width:320px}
+.cfmtit{font-size:16px;font-weight:800;margin-bottom:6px}.cfmmsg{font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:18px}
+.cfmact{display:flex;gap:8px}
+.msel-card{outline:2px solid var(--ac)!important;background:rgba(245,158,11,.08)!important}
+.msel-check{width:20px;height:20px;border-radius:50%;border:2px solid var(--ac);background:var(--ac);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.msel-uncheck{width:20px;height:20px;border-radius:50%;border:2px solid var(--bd2);background:var(--s3);flex-shrink:0}
+#MBTN{position:fixed;top:12px;right:60px;z-index:500;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;width:36px;height:36px;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:var(--t1)}
+#MBTN.show{display:flex}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- PIN SCREEN -->
+<div id="PIN">
+  <div class="plogo">N</div>
+  <div class="ptitle">Nilansh Creation</div>
+  <div class="psub">Dispatch Manager · Private</div>
+  <div class="pdots">
+    <div class="pdot" id="pd0"></div><div class="pdot" id="pd1"></div>
+    <div class="pdot" id="pd2"></div><div class="pdot" id="pd3"></div>
+  </div>
+  <div class="perr" id="PERR"></div>
+  <div class="ppad">
+    <button class="pk" onclick="pinKey('1')">1</button><button class="pk" onclick="pinKey('2')">2</button><button class="pk" onclick="pinKey('3')">3</button>
+    <button class="pk" onclick="pinKey('4')">4</button><button class="pk" onclick="pinKey('5')">5</button><button class="pk" onclick="pinKey('6')">6</button>
+    <button class="pk" onclick="pinKey('7')">7</button><button class="pk" onclick="pinKey('8')">8</button><button class="pk" onclick="pinKey('9')">9</button>
+    <button class="pk" style="visibility:hidden"></button><button class="pk" onclick="pinKey('0')">0</button><button class="pk del" onclick="pinDel()">&#x232B;</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="APP">
+  <div id="HDR">
+    <div class="htop">
+      <div class="hlogo" onclick="openProfile()" title="Profile (P)">N</div>
+      <div class="hnames"><div class="hname">Nilansh Creation</div><div class="hsub">Dispatch Manager</div></div>
+      <button id="MBTN" title="Multi-select menu" onclick="openMSelMenu()">&#8942;</button>
+      <button id="SBTN" onclick="manualSync()" title="Sync Now" style="position:relative;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+        <svg id="SICO" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </button>
+      <button id="TBTN" onclick="toggleTheme()" title="Theme (T)">&#9728;</button>
+    </div>
+    <div class="stats">
+      <div class="stat" onclick="goFilter('all')" title="All"><div class="sv" id="sTot">0</div><div class="sl">Total</div></div>
+      <div class="stat" onclick="goFilter('pending')" title="Pending"><div class="sv o" id="sPen">0</div><div class="sl">Pending</div></div>
+      <div class="stat" onclick="goFilter('partial')" title="Partial"><div class="sv" id="sPar">0</div><div class="sl">Partial</div></div>
+      <div class="stat" onclick="goFilter('received')" title="Received"><div class="sv g" id="sRec">0</div><div class="sl">Received</div></div>
+    </div>
+  </div>
+  <div id="CNT"></div>
+  <button id="FAB" onclick="openForm(null)" title="New Challan (+)">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0e1a" stroke-width="2.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
+  <div id="NAV">
+    <button class="nb on" id="nb0" onclick="setTab('c',0)" title="Chalans (1)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Chalans
+    </button>
+    <button class="nb" id="nb1" onclick="setTab('s',1)" title="Summary (2)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Summary
+    </button>
+  </div>
+</div>
+<div id="OVL"></div>
+<div id="TST"></div>
+
+<script>
+// ═══════════════ CONSTANTS ═══════════════
+var SBU='https://zqmgbuqfmtloqlalkixx.supabase.co';
+var SBK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxbWdidXFmbXRsb3FsYWxraXh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4OTA3MzIsImV4cCI6MjA4OTQ2NjczMn0.tQeuRY0pTRWdbsKMCxdJDbTSzTH3DDcqeN0Wh7q8Obc';
+var ADM='Ramji@7861', DPIN='5555';
+var DUNT=['pcs','mtr','kg','set','dz','box','ltr','gm','pair'];
+var SK='nc_ch1', PK='nc_pi1', UK='nc_un1', TK='nc_th1';
+
+// ═══════════════ STATE ═══════════════
+var DB=[], UNITS=[], CUR='c', SQ='', FIL='all';
+var GST_ON=false, TDS_ON=false, UNIT_ON=false, PH=true, PL=true, PF=true;
+var pinEntry='';
+var FItems=[], FCid=null, FCparty='';
+var selCard=null, selSummaryIdx=-1, fromSummary=false;
+var PFIL='all';
+var MSEL=false,selSet=new Set();
+var lastDetailEnter=0;
+var lastUsed={item:'',designNo:'',qty:'',rate:'',gstRate:0,supplierNo:'',supplierChalanNo:'',unit:''};
+
+// ═══════════════ STORAGE ═══════════════
+function ls(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsw(k,v){try{localStorage.setItem(k,String(v));}catch(e){}}
+function loadDB(){try{var r=ls(SK);return r?JSON.parse(r):[];}catch(e){return[];}}
+function saveDB(){lsw(SK,JSON.stringify(DB));}
+function loadUnits(){try{var r=ls(UK);return r?JSON.parse(r):DUNT.slice();}catch(e){return DUNT.slice();}}
+function saveUnits(){lsw(UK,JSON.stringify(UNITS));syncSB();}
+function getTDS(p){try{var d=ls('nc_tp');return d?(JSON.parse(d)[p]||0):0;}catch(e){return 0;}}
+function getGSTParties(){try{var r=ls('nc_gsp');return r?JSON.parse(r):{};}catch(e){return{};}}
+function setGSTParty(party,on){var m=getGSTParties();var v=(on===true||on==='true');if(v)m[party]=true;else delete m[party];lsw('nc_gsp',JSON.stringify(m));syncSettings();openProfile();}
+function partyHasGST(party){
+  if(!GST_ON)return false;
+  if(!party||!party.trim())return false;
+  var m=getGSTParties();
+  if(Object.keys(m).length===0)return true;
+  return!!(m[party.trim()]);
+}
+function refreshFormGST(){
+  var fp=document.getElementById('fp');
+  var show=partyHasGST(fp?fp.value.trim():'');
+  document.querySelectorAll('.gst-field').forEach(function(el){
+    el.style.display=show?'':'none';
+  });
+}
+function setTDS(p,r){try{var d=ls('nc_tp');var m=d?JSON.parse(d):{};m[p]=parseFloat(r)||0;lsw('nc_tp',JSON.stringify(m));syncSB();}catch(e){}}
+function getAllTDS(){try{var d=ls('nc_tp');return d?JSON.parse(d):{};}catch(e){return{};}}
+
+// ═══════════════ UTILS ═══════════════
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function today(){return new Date().toISOString().split('T')[0];}
+
+// Date: store as YYYY-MM-DD, display as DD/MM/YY
+function toDisplay(iso){
+  if(!iso)return'';
+  try{
+    var p=iso.split('-');
+    if(p.length===3) return p[2]+'/'+p[1]+'/'+(p[0].slice(-2));
+    return iso;
+  }catch(e){return iso;}
+}
+function toISO(dmy){
+  // Parse DD/MM/YY or DD/MM/YYYY
+  if(!dmy)return today();
+  var p=dmy.split('/');
+  if(p.length===3){
+    var dd=p[0].padStart(2,'0');
+    var mm=p[1].padStart(2,'0');
+    var yr=p[2].length===2?(parseInt(p[2])<50?'20':'19')+p[2]:p[2];
+    var iso=yr+'-'+mm+'-'+dd;
+    if(!isNaN(new Date(iso).getTime()))return iso;
+  }
+  if(!isNaN(new Date(dmy).getTime()))return new Date(dmy).toISOString().split('T')[0];
+  return today();
+}
+
+function esc(s){if(s==null)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function toast(m){var e=document.createElement('div');e.className='toast';e.innerHTML=m;document.getElementById('TST').appendChild(e);setTimeout(function(){if(e.parentNode)e.parentNode.removeChild(e);},2700);}
+function persist(){
+  saveDB();
+  if(TDS_ON){
+    var ap=new Set(DB.map(function(x){return x.party;}));
+    var tm=getAllTDS();var ch=false;
+    Object.keys(tm).forEach(function(p){if(!ap.has(p)&&(parseFloat(tm[p])||0)>0){delete tm[p];ch=true;}});
+    if(ch)lsw('nc_tp',JSON.stringify(tm));
+  }
+  syncSB();updateStats();render();
+}
+function goFilter(f){FIL=f;SQ='';fromSummary=false;setTab('c',0);}
+function goParty(name){SQ=name;FIL='all';PFIL='all';fromSummary=true;setTab('c',0);}
+function backToSummary(){SQ='';FIL='all';fromSummary=false;selSummaryIdx=-1;setTab('s',1);}
+
+// ═══════════════ PIN ═══════════════
+function getPin(){return ls(PK)||DPIN;}
+function pinKey(k){
+  if(pinEntry.length>=4)return;
+  pinEntry+=k;
+  for(var i=0;i<4;i++){var d=document.getElementById('pd'+i);if(d){if(i<pinEntry.length){d.classList.add('fill');}else{d.classList.remove('fill');}}}
+  if(pinEntry.length===4)setTimeout(checkPin,150);
+}
+function pinDel(){
+  pinEntry=pinEntry.slice(0,-1);
+  for(var i=0;i<4;i++){var d=document.getElementById('pd'+i);if(d){if(i<pinEntry.length){d.classList.add('fill');}else{d.classList.remove('fill');}}}
+  document.getElementById('PERR').textContent='';
+}
+function checkPin(){
+  if(pinEntry===getPin()){
+    document.getElementById('PIN').style.display='none';
+    startApp();
+  } else {
+    document.getElementById('PERR').textContent='Wrong PIN. Try again.';
+    pinEntry='';
+    for(var i=0;i<4;i++){var d=document.getElementById('pd'+i);if(d)d.classList.remove('fill');}
+  }
+}
+function lockApp(){
+  lsw('nc_ss','');pinEntry='';
+  for(var i=0;i<4;i++){var d=document.getElementById('pd'+i);if(d)d.classList.remove('fill');}
+  document.getElementById('PERR').textContent='';
+  document.getElementById('PIN').style.display='flex';
+}
+
+// PIN keyboard
+document.addEventListener('keydown',function(e){
+  if(document.getElementById('PIN').style.display==='none')return;
+  if(e.key>='0'&&e.key<='9'){e.preventDefault();pinKey(e.key);}
+  else if(e.key==='Backspace'){e.preventDefault();pinDel();}
+});
+
+// No auto-login - PIN required every time
+
+// ═══════════════ SUPABASE ═══════════════
+var SB_OK=null;
+function sbH(){return{'Content-Type':'application/json','apikey':SBK,'Authorization':'Bearer '+SBK};}
+function setSyncStatus(ok){SB_OK=ok;}
+
+// ── SETTINGS SYNC (completely independent, uses nilansh_pin table's extra field approach) ──
+// We store settings as a simple JSON string in nilansh_pin table under id='settings'
+// This avoids any column-addition requirement
+// Settings sync via nilansh_data chalans array (piggyback on working chalans sync)
+// Special entry with id='__settings__' stores all app settings
+function getSettingsRecord(){
+  return {
+    id:'__settings__',
+    gst:GST_ON?'1':'0',
+    tds:TDS_ON?'1':'0',
+    unit:UNIT_ON?'1':'0',
+    adm:ADM||'',
+    units:JSON.stringify(UNITS),
+    tds_rates:JSON.stringify(getAllTDS()),
+    trash:JSON.stringify(getTrash()),
+    gst_parties:JSON.stringify(getGSTParties()),
+    updatedAt:new Date().toISOString()
+  };
+}
+function applySettingsRecord(s){
+  if(!s||s.id!=='__settings__')return false;
+  var changed=false;
+  if(s.gst!==undefined){var gv=(s.gst==='1');if(gv!==GST_ON){GST_ON=gv;lsw('nc_gst',s.gst);changed=true;}}
+  if(s.tds!==undefined){var tv=(s.tds==='1');if(tv!==TDS_ON){TDS_ON=tv;lsw('nc_tds',s.tds);changed=true;}}
+  if(s.unit!==undefined){var uv=(s.unit==='1');if(uv!==UNIT_ON){UNIT_ON=uv;lsw('nc_unit',s.unit);changed=true;}}
+  if(s.adm&&s.adm!==ADM){ADM=s.adm;lsw('nc_adm',s.adm);}
+  if(s.units){try{var u=JSON.parse(s.units);if(Array.isArray(u)&&JSON.stringify(u)!==JSON.stringify(UNITS)){UNITS=u;lsw(UK,JSON.stringify(UNITS));changed=true;}}catch(e){}}
+  if(s.tds_rates){try{var tr=JSON.parse(s.tds_rates);if(JSON.stringify(tr)!==JSON.stringify(getAllTDS())){lsw('nc_tp',JSON.stringify(tr));changed=true;}}catch(e){}}
+  if(s.gst_parties){try{var gp=JSON.parse(s.gst_parties);if(JSON.stringify(gp)!==JSON.stringify(getGSTParties())){lsw('nc_gsp',JSON.stringify(gp));changed=true;}}catch(e){}}
+  if(s.trash){try{
+    var ctr=JSON.parse(s.trash);
+    var ltr=loadTrash();
+    var ctIds=new Set(ctr.map(function(x){return x.id;}));
+    var localOnly=ltr.filter(function(x){return!ctIds.has(x.id);});
+    var mergedTr=ctr.concat(localOnly);
+    var nowMs=Date.now();
+    mergedTr=mergedTr.filter(function(x){return nowMs-new Date(x.deletedAt||0).getTime()<5*24*3600*1000;});
+    if(JSON.stringify(mergedTr)!==JSON.stringify(ltr)){saveTrash(mergedTr);changed=true;}
+  }catch(e){}}
+  return changed;
+}
+function syncSettings(){
+  // Just trigger syncSB - settings ride along with chalans in the same array
+  syncSB();
+}
+function loadSettings(){/* settings load via loadSB - embedded in chalans array */}
+
+// ── CHALANS SYNC ──
+async function syncSB(){
+  if(!navigator.onLine){setSyncStatus(false);return;}
+  try{
+    // Include settings as special record in chalans array
+    var dbWithSettings=DB.filter(function(x){return x.id!=='__settings__';});
+    dbWithSettings=dbWithSettings.concat([getSettingsRecord()]);
+    var payload={chalans:dbWithSettings,updated_at:new Date().toISOString()};
+    var r=await fetch(SBU+'/rest/v1/nilansh_data?id=eq.main',{method:'PATCH',headers:Object.assign({'Prefer':'return=minimal'},sbH()),body:JSON.stringify(payload)});
+    if(!r.ok){
+      var r2=await fetch(SBU+'/rest/v1/nilansh_data',{method:'POST',headers:Object.assign({'Prefer':'return=minimal'},sbH()),body:JSON.stringify(Object.assign({id:'main'},payload))});
+      setSyncStatus(r2.ok);
+    } else {setSyncStatus(true);}
+  }catch(e){setSyncStatus(false);}
+}
+async function loadSB(){
+  if(!navigator.onLine){setSyncStatus(false);return false;}
+  try{
+    var r=await fetch(SBU+'/rest/v1/nilansh_data?id=eq.main&select=chalans,updated_at',{headers:sbH()});
+    if(!r.ok){setSyncStatus(false);return false;}
+    var rows=await r.json();
+    if(!rows||!rows.length||!rows[0].chalans){setSyncStatus(true);return false;}
+    var cloud=rows[0].chalans;
+    var cloudTime=new Date(rows[0].updated_at||0).getTime();
+    if(!Array.isArray(cloud)){setSyncStatus(true);return false;}
+
+    // Extract settings record from cloud, keep only real chalans
+    var cloudSettings=cloud.find(function(x){return x.id==='__settings__';});
+    cloud=cloud.filter(function(x){return x.id!=='__settings__';});
+
+    // Apply settings from cloud
+    var settingsChanged=false;
+    if(cloudSettings){settingsChanged=applySettingsRecord(cloudSettings);}
+
+    // Merge chalans
+    var cloudIds=new Set(cloud.map(function(c){return c.id;}));
+    var localOnlyNew=DB.filter(function(c){
+      if(cloudIds.has(c.id))return false;
+      var localTime=new Date(c.updatedAt||0).getTime();
+      return localTime>cloudTime;
+    });
+    var map={};
+    cloud.forEach(function(c){map[c.id]=c;});
+    localOnlyNew.forEach(function(c){map[c.id]=c;});
+    DB.forEach(function(c){
+      if(map[c.id]){
+        var lt=new Date(c.updatedAt||0).getTime();
+        var ct=new Date(map[c.id].updatedAt||0).getTime();
+        if(lt>ct)map[c.id]=c;
+      }
+    });
+    var merged=Object.values(map).sort(function(a,b){return(b.date||'')>(a.date||'')?1:-1;});
+    var chalansChanged=JSON.stringify(merged)!==JSON.stringify(DB);
+    if(chalansChanged){DB=merged;saveDB();}
+    setSyncStatus(true);
+    return chalansChanged||settingsChanged;
+  }catch(e){setSyncStatus(false);return false;}
+}
+async function syncPin(pin){
+  try{
+    var b=JSON.stringify({pin:pin,updated_at:new Date().toISOString()});
+    var r=await fetch(SBU+'/rest/v1/nilansh_pin?id=eq.main',{method:'PATCH',headers:Object.assign({'Prefer':'return=minimal'},sbH()),body:b});
+    if(!r.ok)await fetch(SBU+'/rest/v1/nilansh_pin',{method:'POST',headers:Object.assign({'Prefer':'return=minimal,resolution=ignore-duplicates'},sbH()),body:JSON.stringify({id:'main',pin:pin,updated_at:new Date().toISOString()})});
+  }catch(e){}
+}
+async function loadPin(){
+  try{
+    var r=await fetch(SBU+'/rest/v1/nilansh_pin?id=eq.main&select=pin',{headers:sbH()});
+    if(!r.ok)return;
+    var rows=await r.json();
+    if(rows&&rows.length&&rows[0].pin){
+      if(rows[0].pin!==getPin()){lsw(PK,rows[0].pin);lockApp();}
+    }
+  }catch(e){}
+}
+async function manualSync(){
+  var ico=document.getElementById('SICO');
+  if(ico)ico.style.animation='spin 1s linear infinite';
+  toast('Syncing...');
+  var changed=await loadSB();
+  await syncSB();
+  if(ico)ico.style.animation='';
+  if(changed){updateStats();render();}
+  toast(SB_OK?'Synced &#x2713;':'Sync failed');
+}
+
+// ═══════════════ STARTUP ═══════════════
+function startApp(){
+  try{if(ls(TK)==='light')document.body.classList.add('light');}catch(e){}
+  updateThemeBtn();
+  try{var sa=ls('nc_adm');if(sa)ADM=sa;}catch(e){}
+  try{GST_ON=ls('nc_gst')==='1';}catch(e){}
+  try{TDS_ON=ls('nc_tds')==='1';}catch(e){}
+  try{UNIT_ON=ls('nc_unit')==='1';}catch(e){}
+  try{PH=ls('nc_ph')!=='0';PL=ls('nc_pl')!=='0';PF=ls('nc_pf')!=='0';}catch(e){}
+  DB=loadDB();UNITS=loadUnits();
+  updateStats();render();
+  loadPin();
+  loadSB().then(function(changed){if(changed){updateStats();render();}});
+  setInterval(function(){
+    loadSB().then(function(changed){if(changed){updateStats();render();}});
+  },5000);
+  document.addEventListener('keydown',globalKeys,false);
+}
+
+// ═══════════════ THEME ═══════════════
+function updateThemeBtn(){var b=document.getElementById('TBTN');if(b)b.innerHTML=document.body.classList.contains('light')?'&#9789;':'&#9728;';}
+function toggleTheme(){var l=document.body.classList.contains('light');document.body.classList.toggle('light',!l);lsw(TK,l?'dark':'light');updateThemeBtn();}
+
+// ═══════════════ STATS & TABS ═══════════════
+function updateStats(){
+  var tot=DB.length;
+  var rec=DB.filter(function(c){return c.items.length&&c.items.every(function(i){return i.received;});}).length;
+  var pen=DB.filter(function(c){return c.items.length&&c.items.every(function(i){return!i.received;});}).length;
+  var par=DB.filter(function(c){return c.items.some(function(i){return i.received;})&&c.items.some(function(i){return!i.received;});}).length;
+  document.getElementById('sTot').textContent=tot;
+  document.getElementById('sPen').textContent=pen;
+  var sparEl=document.getElementById('sPar');if(sparEl)sparEl.textContent=par;
+  document.getElementById('sRec').textContent=rec;
+}
+function setTab(t,i){
+  CUR=t;selCard=null;
+  if(t!=='s')selSummaryIdx=-1;
+  if(t==='s')fromSummary=false;
+  document.querySelectorAll('.nb').forEach(function(b,j){b.classList.toggle('on',j===i);});
+  document.getElementById('FAB').style.display=t==='c'?'flex':'none';
+  render();
+}
+function getStatus(c){
+  if(!c.items.length)return'pending';
+  if(c.items.every(function(i){return i.received;}))return'received';
+  if(c.items.every(function(i){return!i.received;}))return'pending';
+  return'partial';
+}
+function cTotal(c){
+  var sub=c.items.reduce(function(s,i){return s+(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);},0);
+  var gst=GST_ON?c.items.reduce(function(s,i){var a=(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);return s+(parseFloat(i.gstRate)||0)*a/100;},0):0;
+  var tds=TDS_ON?sub*(parseFloat(getTDS(c.party))||0)/100:0;
+  var net=sub+gst-tds;return{sub:sub,gst:gst,tds:tds,net:net,isPaid:!!(c.isPaid),balance:c.isPaid?0:net};
+}
+
+// ═══════════════ RENDER ═══════════════
+function render(){
+  var el=document.getElementById('CNT');if(!el)return;
+  if(CUR==='c')el.innerHTML=renderChalans();
+  else{el.innerHTML=renderSummary();reApplySummarySelection();}
+}
+// Lightweight re-render: only update cards+chips, keep search input focused (mobile keyboard stays)
+function renderCards(){
+  if(CUR!=='c')return;
+  var fl=getFiltered();
+  var chips=[['all','All'],['pending','Pending'],['partial','Partial'],['received','Received']].map(function(x){
+    var on=FIL===x[0];var cls=on?(x[0]==='received'?'gon':x[0]==='pending'?'oon':'on'):'';
+    return '<button class="chip '+cls+'" onclick="FIL=\''+x[0]+'\';SQ=document.getElementById(\'SRCH\')?document.getElementById(\'SRCH\').value:\'\';renderCards()">'+x[1]+'</button>';
+  }).join('');
+  var cards=fl.length?fl.map(function(c){
+    var t=cTotal(c),st=getStatus(c);
+    var bc=st==='received'?'r':st==='partial'?'x':'p';
+    var paidBadge=c.isPaid?'<span style="background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.25);padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;margin-left:4px">PAID</span>':'';
+    var sel=selCard===c.id?' ksel':'';
+    var cid=esc(c.id);
+    var chkHtml=MSEL?('<div style="padding:12px 14px 0;display:flex;align-items:center;gap:8px">'+
+      '<div class="'+(selSet.has(c.id)?'msel-check':'msel-uncheck')+'">'+
+      (selSet.has(c.id)?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0a0e1a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>':'')+
+      '</div><div style="font-size:11px;color:var(--t3)">'+(selSet.has(c.id)?'Selected':'Tap to select')+'</div></div>'):'';
+    return '<div class="card '+st+sel+(MSEL&&selSet.has(c.id)?' msel-card':'')+'" data-id="'+cid+'"'+
+      ' onclick="cardClick(this,event)" ontouchstart="onCardTouchStart(event,this)" ontouchend="onCardTouchEnd()">'+
+      chkHtml+
+      '<div class="ctop">'+
+      '<div><div class="cparty">'+esc(c.party)+paidBadge+'</div>'+
+      '<div class="cmeta">Chalan #'+esc(c.chalanNo)+' &middot; '+c.items.length+' item'+(c.items.length!==1?'s':'')+' &middot; '+toDisplay(c.date)+'</div></div>'+
+      '<span class="bdg '+bc+'">'+(st==='received'?'Received':st==='partial'?'Partial':'Pending')+'</span></div>'+
+      '<div class="cbot">'+
+      '<div class="cval" style="color:'+(t.net>0?'var(--ac)':'var(--t3)')+'">'+
+      (t.net>0?'&#x20B9;'+t.net.toLocaleString('en-IN'):c.items.length+' items')+
+      (TDS_ON&&t.tds>0?' <span style="font-size:10px;color:var(--or)">-TDS &#x20B9;'+t.tds.toLocaleString('en-IN')+'</span>':'')+
+      '</div>'+
+      '<div class="cacts">'+
+      '<div class="ibtn" onclick="event.stopPropagation();openDetail(\''+esc(c.id)+'\')" title="View"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>'+
+      '<div class="ibtn" onclick="event.stopPropagation();printChalan(\''+esc(c.id)+'\')" title="Print"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>'+
+      '<div class="ibtn" style="color:#25d366" onclick="event.stopPropagation();sharePartyWA(\''+esc(c.id)+'\')" title="WhatsApp (Alt+S)"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></div>'+'<div class="ibtn" onclick="event.stopPropagation();openForm(\''+esc(c.id)+'\')" title="Edit"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>'+
+      '<div class="ibtn" onclick="event.stopPropagation();confirmDel(\''+esc(c.id)+'\')" style="color:var(--rd)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg></div>'+
+      '</div></div></div>';
+  }).join(''):'<div class="empty"><div style="font-size:40px;opacity:.3;margin-bottom:10px">&#x1F4E6;</div><div style="font-size:17px;font-weight:700;color:var(--t2)">'+(DB.length===0?'No chalans yet':'No results')+'</div><div style="font-size:13px;color:var(--t3);margin-top:4px">'+(DB.length===0?'Press + to add':'Try different filter')+'</div></div>';
+  var ce=document.getElementById('CHIPS');if(ce)ce.innerHTML=chips;
+  var cd=document.getElementById('CARDS');if(cd)cd.innerHTML=cards;
+  updateStats();
+}
+function reApplySummarySelection(){
+  if(selSummaryIdx<0)return;
+  var cards=document.querySelectorAll('#CNT .pc[data-party]');
+  if(cards[selSummaryIdx]){
+    cards[selSummaryIdx].style.boxShadow='0 0 0 2px var(--ac)';
+    cards[selSummaryIdx].style.borderColor='var(--ac)';
+  }
+}
+function getFiltered(){
+  var q=SQ.toLowerCase();
+  var drF=ls('nc_dr_f')||'',drT=ls('nc_dr_t')||'';
+  return DB.filter(function(c){
+    var mq=!q||c.party.toLowerCase().includes(q)||c.chalanNo.toLowerCase().includes(q)||c.items.some(function(i){return i.item.toLowerCase().includes(q)||(i.designNo||'').toLowerCase().includes(q);});
+    var ar=c.items.every(function(i){return i.received;}),nr=c.items.every(function(i){return!i.received;});
+    var mf=FIL==='all'?true:FIL==='pending'?nr:FIL==='received'?ar:(!ar&&!nr);
+    var md=(!drF||c.date>=drF)&&(!drT||c.date<=drT);
+    return mq&&mf&&md;
+  }).sort(function(a,b){return(b.date||'')>(a.date||'')?1:-1;});
+}
+function renderChalans(){
+  var fl=getFiltered();
+  var chips=[['all','All'],['pending','Pending'],['partial','Partial'],['received','Received']].map(function(x){
+    var on=FIL===x[0];var cls=on?(x[0]==='received'?'gon':x[0]==='pending'?'oon':'on'):'';
+    return '<button class="chip '+cls+'" onclick="FIL=\''+x[0]+'\';render()">'+x[1]+'</button>';
+  }).join('');
+  var cards=fl.length?fl.map(function(c){
+    var t=cTotal(c),st=getStatus(c);
+    var bc=st==='received'?'r':st==='partial'?'x':'p';
+    var paidBadge=c.isPaid?'<span style="background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.25);padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700;margin-left:4px">PAID</span>':'';
+    var sel=selCard===c.id?' ksel':'';
+    var cid=esc(c.id);
+    var chkHtml=MSEL?('<div style="padding:12px 14px 0;display:flex;align-items:center;gap:8px">'+
+      '<div class="'+(selSet.has(c.id)?'msel-check':'msel-uncheck')+'">'+
+      (selSet.has(c.id)?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0a0e1a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>':'')+
+      '</div><div style="font-size:11px;color:var(--t3)">'+(selSet.has(c.id)?'Selected':'Tap to select')+'</div></div>'):'';
+    return '<div class="card '+st+sel+(MSEL&&selSet.has(c.id)?' msel-card':'')+'" data-id="'+cid+'"'+
+      ' onclick="cardClick(this,event)" ontouchstart="onCardTouchStart(event,this)" ontouchend="onCardTouchEnd()">'+
+      chkHtml+
+      '<div class="ctop">'+
+      '<div><div class="cparty">'+esc(c.party)+paidBadge+'</div>'+
+      '<div class="cmeta">Chalan #'+esc(c.chalanNo)+' &middot; '+c.items.length+' item'+(c.items.length!==1?'s':'')+' &middot; '+toDisplay(c.date)+'</div></div>'+
+      '<span class="bdg '+bc+'">'+(st==='received'?'Received':st==='partial'?'Partial':'Pending')+'</span></div>'+
+      '<div class="cbot">'+
+      '<div class="cval" style="color:'+(t.net>0?'var(--ac)':'var(--t3)')+'">'+
+      (t.net>0?'&#x20B9;'+t.net.toLocaleString('en-IN'):c.items.length+' items')+
+      (TDS_ON&&t.tds>0?' <span style="font-size:10px;color:var(--or)">-TDS &#x20B9;'+t.tds.toLocaleString('en-IN')+'</span>':'')+
+      '</div>'+
+      '<div class="cacts">'+
+      '<div class="ibtn" onclick="event.stopPropagation();openDetail(\''+esc(c.id)+'\')" title="View"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>'+
+      '<div class="ibtn" onclick="event.stopPropagation();printChalan(\''+esc(c.id)+'\')" title="Print (Alt+D)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>'+
+      '<div class="ibtn" onclick="event.stopPropagation();openForm(\''+esc(c.id)+'\')" title="Edit (E)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>'+
+      '<div class="ibtn" onclick="event.stopPropagation();confirmDel(\''+esc(c.id)+'\')" title="Delete (Ctrl+-)" style="color:var(--rd)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg></div>'+
+      '</div></div></div>';
+  }).join(''):'<div class="empty"><div style="font-size:40px;opacity:.3;margin-bottom:10px">&#x1F4E6;</div><div style="font-size:17px;font-weight:700;color:var(--t2)">'+(DB.length===0?'No chalans yet':'No results')+'</div><div style="font-size:13px;color:var(--t3);margin-top:4px">'+(DB.length===0?'Press + to add':'Try different filter')+'</div></div>';
+  return (fromSummary?'<button onclick="backToSummary()" style="display:flex;align-items:center;gap:6px;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600;color:var(--t2);cursor:pointer;margin-bottom:10px;font-family:inherit"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back to Summary <span style="font-size:10px;color:var(--t3);background:var(--s3);border-radius:4px;padding:1px 5px;margin-left:2px">Esc</span></button>':'')+
+    '<div class="sbar"><span class="sico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><input id="SRCH" placeholder="Search party, chalan, item... (/)" value="'+esc(SQ)+'" oninput="SQ=this.value;fromSummary=false;renderCards()" onkeydown="if(event.key===\'Enter\'){this.blur();}"/></div><div class="chips" id="CHIPS">'+chips+'</div><div id="CARDS">'+cards+'</div>';
+}
+function renderSummary(){
+  var drF=ls('nc_dr_f')||'',drT=ls('nc_dr_t')||'';
+  var fDB=DB.filter(function(c){return(!drF||c.date>=drF)&&(!drT||c.date<=drT);});
+  var ti=fDB.reduce(function(s,c){return s+c.items.length;},0);
+  var ri=fDB.reduce(function(s,c){return s+c.items.filter(function(i){return i.received;}).length;},0);
+  var tv=fDB.reduce(function(s,c){return s+cTotal(c).balance;},0);
+  var pm={};
+  fDB.forEach(function(c){if(!pm[c.party])pm[c.party]={ch:0,it:0,rc:0,val:0};pm[c.party].ch++;c.items.forEach(function(i){pm[c.party].it++;if(i.received)pm[c.party].rc++;pm[c.party].val+=(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);});});
+  var drHtml='<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:12px 13px;margin-bottom:12px">'+
+    '<div style="font-size:11px;font-weight:700;color:var(--ac);margin-bottom:10px;letter-spacing:.5px">DATE RANGE FILTER</div>'+
+    '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">'+
+    '<div style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:130px">'+
+    '<span style="font-size:10px;color:var(--t3);letter-spacing:.5px">FROM</span>'+
+    '<input type="date" class="fi dr-date" value="'+esc(drF)+'" onchange="lsw(\'nc_dr_f\',this.value);render()" onkeydown="return false;" style="padding:8px 9px;font-size:13px;cursor:pointer"/>'+
+    '</div>'+
+    '<span style="color:var(--t3);font-size:16px;margin-top:16px">→</span>'+
+    '<div style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:130px">'+
+    '<span style="font-size:10px;color:var(--t3);letter-spacing:.5px">TO</span>'+
+    '<input type="date" class="fi dr-date" value="'+esc(drT)+'" onchange="lsw(\'nc_dr_t\',this.value);render()" onkeydown="return false;" style="padding:8px 9px;font-size:13px;cursor:pointer"/>'+
+    '</div>'+
+    (drF||drT?'<button class="pbtn" style="margin-top:16px;white-space:nowrap" onclick="lsw(\'nc_dr_f\',\'\');lsw(\'nc_dr_t\',\'\');render()">Clear</button>':'')+
+    '</div>'+
+    (fDB.length!==DB.length?'<div style="font-size:11px;color:var(--or);margin-top:8px">Showing '+fDB.length+' of '+DB.length+' chalans</div>':'')+
+    '</div>';
+  var pcards=Object.entries(pm).sort(function(a,b){return b[1].val-a[1].val;}).map(function(e){
+    var n=e[0],d=e[1],pct=d.it>0?Math.round(d.rc/d.it*100):0;
+    return '<div class="pc" data-party="'+esc(n)+'" style="cursor:pointer" onclick="goParty(\''+esc(n)+'\')" title="Click to view chalans">'+
+      '<div class="pname" style="display:flex;align-items:center;justify-content:space-between">'+
+      '<span>'+esc(n)+'</span>'+
+      '<div style="display:flex;gap:6px;align-items:center">'+
+      '<button onclick="event.stopPropagation();printParty(\''+esc(n)+'\')" style="background:var(--s3);border:1px solid var(--bd2);border-radius:6px;padding:3px 9px;cursor:pointer;color:var(--t2);font-size:11px;font-family:inherit;display:flex;align-items:center;gap:3px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Print</button>'+
+      '<span style="font-size:11px;color:var(--ac);font-weight:600">View ›</span>'+
+      '</div>'+
+      '</div>'+
+      '<div class="ptags">'+
+      '<span class="ptag" style="background:var(--s2)">Chalans: <b>'+d.ch+'</b></span>'+
+      '<span class="ptag" style="background:var(--s2)">Items: <b>'+d.it+'</b></span>'+
+      '<span class="ptag" style="background:rgba(16,185,129,.08);color:var(--gr)">Recv: <b>'+d.rc+'</b></span>'+
+      (d.val>0?'<span class="ptag" style="background:rgba(245,158,11,.08);color:var(--ac)">&#x20B9;'+d.val.toLocaleString('en-IN')+'</span>':'')+
+      (TDS_ON&&getTDS(n)>0?'<span class="ptag" style="background:rgba(249,115,22,.08);color:var(--or)">TDS '+getTDS(n)+'%</span>':'')+
+      '</div>'+
+      '<div class="prog"><div class="progb" style="width:'+pct+'%"></div></div>'+
+      '<div class="prpct">'+pct+'% received</div></div>';
+  }).join('')||'<div class="empty"><div style="font-size:36px;opacity:.3">&#x1F4CA;</div><div style="font-size:17px;font-weight:700;color:var(--t2);margin-top:8px">No data</div></div>';
+  return drHtml+
+    '<div class="sgrid">'+
+    '<div class="sc" style="cursor:pointer" onclick="goFilter(\'all\')" title="Show all chalans"><div class="sv2">'+fDB.length+'</div><div class="sl2">Chalans ›</div></div>'+
+    '<div class="sc" style="cursor:pointer" onclick="goFilter(\'all\')" title="Show all chalans"><div class="sv2">'+ti+'</div><div class="sl2">Total Items ›</div></div>'+
+    '<div class="sc" style="cursor:pointer;border-color:rgba(16,185,129,.3)" onclick="goFilter(\'received\')" title="Show received chalans"><div class="sv2" style="color:var(--gr)">'+ri+'</div><div class="sl2">Received ›</div></div>'+
+    '<div class="sc" style="cursor:pointer;border-color:rgba(249,115,22,.3)" onclick="goFilter(\'pending\')" title="Show pending chalans"><div class="sv2" style="color:var(--or)">'+(ti-ri)+'</div><div class="sl2">Pending ›</div></div>'+
+    '</div>'+
+    (tv>0?'<div style="background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:var(--t3)">Net Value'+(GST_ON?' (incl. GST)':'')+'</span><span style="font-size:19px;font-weight:800;color:var(--ac)">&#x20B9;'+tv.toLocaleString('en-IN')+'</span></div>':'')+
+    '<div class="sec">Party-wise</div>'+pcards;
+}
+
+function acSuggestions(type,val,extra){
+  val=(val||'').toLowerCase().trim();
+  var list=[];
+  if(type==='party')list=[...new Set(DB.map(function(c){return c.party;}))].sort();
+  else if(type==='item')list=[...new Set(DB.flatMap(function(c){return c.items.map(function(i){return i.item;}).filter(Boolean);}))].sort();
+  else if(type==='design'){
+    var iL=(extra||'').toLowerCase();
+    list=[...new Set(DB.flatMap(function(c){return c.items.filter(function(i){return(!iL||i.item.toLowerCase()===iL)&&i.designNo;}).map(function(i){return i.designNo;});}))].sort();
+  }
+  else if(type==='supplier')list=[...new Set(DB.flatMap(function(c){return c.items.map(function(i){return i.supplierNo;}).filter(Boolean);}))].sort();
+  else if(type==='unit')list=UNITS.slice();
+  // Empty field: show lastUsed value first, then all options
+  if(!val){
+    var lu='';
+    if(type==='item')lu=lastUsed.item;
+    else if(type==='design')lu=lastUsed.designNo;
+    else if(type==='supplier')lu=lastUsed.supplierNo;
+    else if(type==='unit')lu=lastUsed.unit||UNITS[0]||'pcs';
+    else if(type==='party'){
+      // For party: show most recent party first
+      var recent=[...new Set(DB.map(function(c){return c.party;}))];
+      return recent.slice(0,8);
+    }
+    if(lu){
+      var rest=list.filter(function(x){return x!==lu;});
+      return [lu].concat(rest).slice(0,8);
+    }
+    return list.slice(0,8);
+  }
+  return list.filter(function(x){return x.toLowerCase().includes(val)&&x.toLowerCase()!==val;}).slice(0,8);
+}
+function acRender(dropId,items,onSelect){
+  var d=document.getElementById(dropId);if(!d)return;
+  if(!items.length){d.className='acd';return;}
+  d.innerHTML=items.map(function(v,i){return '<div data-v="'+esc(v)+'">'+esc(v)+'</div>';}).join('');
+  d.querySelectorAll('div').forEach(function(row){
+    row.onmousedown=function(e){e.preventDefault();onSelect(row.dataset.v);};
+  });
+  d.className='acd show';
+}
+function acHide(dropId){var d=document.getElementById(dropId);if(d)d.className='acd';}
+function acHideAll(){document.querySelectorAll('.acd').forEach(function(d){d.className='acd';});}
+function acMoveHi(dropId,dir){
+  var d=document.getElementById(dropId);if(!d||d.className.indexOf('show')<0)return false;
+  var rows=d.querySelectorAll('div');if(!rows.length)return false;
+  var cur=-1;rows.forEach(function(r,i){if(r.classList.contains('hi'))cur=i;});
+  rows.forEach(function(r){r.classList.remove('hi');});
+  var nx=(cur+dir+rows.length)%rows.length;
+  rows[nx].classList.add('hi');
+  return true;
+}
+function acSelectTop(dropId){
+  var d=document.getElementById(dropId);if(!d||d.className.indexOf('show')<0)return null;
+  var hi=d.querySelector('.hi');return hi?hi.dataset.v:null;
+}
+function acGetTop(dropId){
+  // Returns the first row value (for Tab selection)
+  var d=document.getElementById(dropId);if(!d||d.className.indexOf('show')<0)return null;
+  var first=d.querySelector('div');return first?first.dataset.v:null;
+}
+
+// ═══════════════ PREV RATE ═══════════════
+function getPrevRate(party,itemName,designNo){
+  // Alt+R rate lookup — exact steps:
+  // Step 1: Check if design no is filled
+  // Step 2: If design filled → search current party's prev bills for same item+design first
+  //         then any party's prev bills for same item+design
+  // Step 3: If design empty → search any party's prev bills for same item (any design)
+  if(!itemName)return 0;
+  var pL=(party||'').toLowerCase();
+  var iL=itemName.toLowerCase();
+  var dL=(designNo||'').toLowerCase();
+
+  if(dL){
+    // STEP 2: Design is filled
+    // First: same party (current challan party) + same item + same design
+    if(pL){
+      for(var i=0;i<DB.length;i++){
+        var ch=DB[i];
+        if(ch.id===FCid)continue; // skip current challan being edited
+        if(ch.party.toLowerCase()===pL){
+          for(var j=0;j<ch.items.length;j++){
+            var it=ch.items[j];
+            if(it.item.toLowerCase()===iL&&(it.designNo||'').toLowerCase()===dL&&it.rate)
+              return parseFloat(it.rate)||0;
+          }
+        }
+      }
+    }
+    // Design filled + same party → no match found → return blank (do NOT search other parties)
+    return 0;
+  } else {
+    // STEP 3: Design is empty → find same item in any party's previous bill
+    for(var i=0;i<DB.length;i++){
+      var ch=DB[i];
+      if(ch.id===FCid)continue;
+      for(var j=0;j<ch.items.length;j++){
+        var it=ch.items[j];
+        if(it.item.toLowerCase()===iL&&it.rate)
+          return parseFloat(it.rate)||0;
+      }
+    }
+    return 0;
+  }
+}
+
+// ═══════════════ FORM ═══════════════
+function newItem(){return{id:uid(),item:'',designNo:'',qty:'',rate:'',gstRate:0,unit:lastUsed.unit||UNITS[0]||'pcs',notes:'',supplierNo:'',supplierChalanNo:'',received:false,receivedDate:''};}
+function updFI(id,f,v){var it=FItems.find(function(x){return x.id===id;});if(it){it[f]=v;updFTot();}}
+function updFTot(){
+  var el=document.getElementById('ftot');if(!el)return;
+  var sub=FItems.reduce(function(s,i){return s+(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);},0);
+  var gst=GST_ON?FItems.reduce(function(s,i){var a=(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);return s+(parseFloat(i.gstRate)||0)*a/100;},0):0;
+  if(sub>0)el.innerHTML='Subtotal: <b style="color:var(--ac)">&#x20B9;'+sub.toLocaleString('en-IN')+'</b>'+(gst>0?' + GST: <b style="color:var(--bl)">&#x20B9;'+gst.toLocaleString('en-IN')+'</b>':'');
+  else el.innerHTML='';
+}
+
+// Form field navigation - the KEY fix: use DOM order, skip AC dropdowns
+function formNext(){
+  var body=document.querySelector('.shbody');
+  if(!body)return;
+  var all=[];
+  body.querySelectorAll('input,select').forEach(function(el){
+    if(el.disabled)return;
+    var p=el.parentNode;var inAC=false;
+    while(p&&p!==body){if(p.classList&&p.classList.contains('acd')){inAC=true;break;}p=p.parentNode;}
+    if(inAC)return;
+    if(!el.offsetParent&&el.type!=='hidden')return;
+    all.push(el);
+  });
+  var cur=document.activeElement;
+  // Validate challan number before leaving it
+  if(cur&&cur.id==='fcn'){
+    if(!cur.value.trim()){cur.style.borderColor='var(--rd)';toast('Challan number required');return;}
+    cur.style.borderColor='';
+  }
+  // Validate item name before leaving it
+  if(cur&&cur.id&&cur.id.startsWith('ii_')){
+    if(!cur.value.trim()){cur.style.borderColor='var(--rd)';toast('Item name required');return;}
+    cur.style.borderColor='';
+  }
+  var ci=all.indexOf(cur);
+  if(ci>=0&&ci<all.length-1){
+    var nx=all[ci+1];
+    nx.focus();
+    try{if(nx.type==='text'||nx.type==='number'||nx.type==='')nx.select();}catch(e){}
+  } else {
+    saveForm(true);
+  }
+}
+function formPrev(){
+  var body=document.querySelector('.shbody');
+  if(!body)return;
+  var all=[];
+  body.querySelectorAll('input,select').forEach(function(el){
+    if(el.disabled)return;
+    var p=el.parentNode;var inAC=false;
+    while(p&&p!==body){if(p.classList&&p.classList.contains('acd')){inAC=true;break;}p=p.parentNode;}
+    if(inAC)return;
+    if(!el.offsetParent&&el.type!=='hidden')return;
+    all.push(el);
+  });
+  var cur=document.activeElement;
+  var ci=all.indexOf(cur);
+  if(ci>0){
+    var pv=all[ci-1];
+    pv.focus();
+    try{if(pv.type==='text'||pv.type==='number'||pv.type==='')pv.select();}catch(e){}
+  }
+}
+
+function buildItemCard(item,idx,total){
+  var iid=item.id;
+  var defUnit=UNIT_ON?(item.unit||lastUsed.unit||UNITS[0]||'pcs'):'pcs';
+  var unitInp=UNIT_ON?
+    '<div style="width:20%;position:relative">'+
+    '<input class="fi" id="ui_'+iid+'" type="text" value="'+esc(defUnit)+'" placeholder="pcs" autocomplete="off"'+
+    ' style="padding:10px 4px;font-size:13px;text-align:center"'+
+    ' oninput="updFI(\''+iid+'\',\'unit\',this.value);acRender(\'acd_ui_'+iid+'\',acSuggestions(\'unit\',this.value),function(v){document.getElementById(\'ui_'+iid+'\').value=v;updFI(\''+iid+'\',\'unit\',v);acHide(\'acd_ui_'+iid+'\');})"'+
+    ' onfocus="acRender(\'acd_ui_'+iid+'\',acSuggestions(\'unit\',this.value),function(v){document.getElementById(\'ui_'+iid+'\').value=v;updFI(\''+iid+'\',\'unit\',v);acHide(\'acd_ui_'+iid+'\');})"'+
+    ' onblur="setTimeout(function(){acHide(\'acd_ui_'+iid+'\');},180)"'+
+    ' onkeydown="unitKey(event,\''+iid+'\')"/>'+
+    '<div class="acd" id="acd_ui_'+iid+'"></div>'+
+    '</div>':'';
+  var qtyStyle=UNIT_ON?'width:78%;':'width:100%;';
+  var html=
+    '<div class="icard" id="ic_'+iid+'">'+
+    '<span class="inum">#'+(idx+1)+'</span>'+
+    (total>1?'<button class="irm" onclick="rmFItem(\''+iid+'\')" tabindex="-1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>':'')+
+    '<div style="margin-top:11px">'+
+    '<div class="fg">'+
+    '<label class="fl">Item Name *</label>'+
+    '<input class="fi" id="ii_'+iid+'" type="text" value="'+esc(item.item)+'" placeholder="e.g. Cotton Fabric" autocomplete="off"'+
+    ' oninput="updFI(\''+iid+'\',\'item\',this.value);acRender(\'acd_ii_'+iid+'\',acSuggestions(\'item\',this.value),function(v){selItem(\''+iid+'\',v);})"'+
+    ' onfocus="acRender(\'acd_ii_'+iid+'\',acSuggestions(\'item\',this.value),function(v){selItem(\''+iid+'\',v);})"'+
+    ' onblur="setTimeout(function(){acHide(\'acd_ii_'+iid+'\');},180)"'+
+    ' onkeydown="iiKey(event,\''+iid+'\')"/>'+
+    '<div class="acd" id="acd_ii_'+iid+'"></div>'+
+    '</div>'+
+    '<div class="fg">'+
+    '<label class="fl">Design No.</label>'+
+    '<input class="fi" id="di_'+iid+'" type="text" value="'+esc(item.designNo||'')+'" placeholder="e.g. D-201" autocomplete="off"'+
+    ' oninput="var ii=document.getElementById(\'ii_'+iid+'\');updFI(\''+iid+'\',\'designNo\',this.value);acRender(\'acd_di_'+iid+'\',acSuggestions(\'design\',this.value,ii?ii.value:\'\'),function(v){selDesign(\''+iid+'\',v);})"'+
+    ' onfocus="var ii=document.getElementById(\'ii_'+iid+'\');acRender(\'acd_di_'+iid+'\',acSuggestions(\'design\',this.value,ii?ii.value:\'\'),function(v){selDesign(\''+iid+'\',v);})"'+
+    ' onblur="setTimeout(function(){acHide(\'acd_di_'+iid+'\');},180)"'+
+    ' onkeydown="diKey(event,\''+iid+'\')"/>'+
+    '<div class="acd" id="acd_di_'+iid+'"></div>'+
+    '</div>'+
+    '<div class="fr2">'+
+    '<div class="fg"><label class="fl">Qty *'+(UNIT_ON?' <span style="font-size:9px;color:var(--t3)">(Unit next to it)</span>':'')+'</label>'+
+    '<div style="display:flex;gap:4px">'+
+    '<input class="fi" id="qi_'+iid+'" type="number" placeholder="0" value="'+(item.qty||'')+'" style="'+qtyStyle+'"'+
+    ' oninput="updFI(\''+iid+'\',\'qty\',this.value)"'+
+    ' onkeydown="genericKey(event)"/>'+
+    unitInp+
+    '</div></div>'+
+    '<div class="fg"><label class="fl">Rate &#x20B9; <span style="font-size:9px;color:var(--t3)">(Alt+R)</span></label>'+
+    '<input class="fi" id="ri_'+iid+'" type="number" placeholder="0" value="'+(item.rate||'')+'"'+
+    ' oninput="updFI(\''+iid+'\',\'rate\',this.value)"'+
+    ' onkeydown="genericKey(event)"/></div>'+
+    '</div>'+
+    '<div class="fg gst-field"><label class="fl" style="color:var(--bl)">GST % (this item)</label>'+
+    '<input class="fi" id="gi_'+iid+'" type="number" placeholder="0" value="'+(item.gstRate||0)+'"'+
+    ' style="border-color:rgba(59,130,246,.4)"'+
+    ' oninput="updFI(\''+iid+'\',\'gstRate\',parseFloat(this.value)||0)"'+
+    ' onkeydown="genericKey(event)"/></div>'+
+    '<div class="fr2">'+
+    '<div class="fg">'+
+    '<label class="fl" style="color:#818cf8">Supplier</label>'+
+    '<input class="fi" id="si_'+iid+'" type="text" placeholder="e.g. ABC Mills" value="'+esc(item.supplierNo||'')+'"'+
+    ' style="border-color:rgba(129,140,248,.3)" autocomplete="off"'+
+    ' oninput="updFI(\''+iid+'\',\'supplierNo\',this.value);acRender(\'acd_si_'+iid+'\',acSuggestions(\'supplier\',this.value),function(v){selSup(\''+iid+'\',v);})"'+
+    ' onfocus="acRender(\'acd_si_'+iid+'\',acSuggestions(\'supplier\',this.value),function(v){selSup(\''+iid+'\',v);})"'+
+    ' onblur="setTimeout(function(){acHide(\'acd_si_'+iid+'\');},180)"'+
+    ' onkeydown="siKey(event,\''+iid+'\')"/>'+
+    '<div class="acd" id="acd_si_'+iid+'"></div>'+
+    '</div>'+
+    '<div class="fg"><label class="fl" style="color:#818cf8">Supplier Chalan</label>'+
+    '<input class="fi" id="sc_'+iid+'" type="text" placeholder="e.g. S-101"'+
+    ' style="border-color:rgba(129,140,248,.3)" value="'+esc(item.supplierChalanNo||'')+'"'+
+    ' oninput="updFI(\''+iid+'\',\'supplierChalanNo\',this.value)"'+
+    ' onkeydown="genericKey(event)"/></div>'+
+    '</div>'+
+    '<div class="fg"><label class="fl">Item Notes</label>'+
+    '<input class="fi" id="ni_'+iid+'" type="text" placeholder="Optional" value="'+esc(item.notes||'')+'"'+
+    ' oninput="updFI(\''+iid+'\',\'notes\',this.value)"'+
+    ' onkeydown="genericKey(event)"/></div>'+
+    '</div></div>';
+  return html;
+}
+
+// ─── AUTOCOMPLETE KEY HELPER ─────────────────────────────────────────────────
+// Returns the ARROW-highlighted item (not first row unless user moved arrow)
+function acGetHighlighted(dropId){
+  var d=document.getElementById(dropId);
+  if(!d||d.className.indexOf('show')<0)return null;
+  // Only return if user explicitly moved arrow (row index > 0 OR first row was navigated to via arrow)
+  var rows=d.querySelectorAll('div');
+  // We track arrow usage via data-arrow attr on dropdown
+  if(!d.dataset.arrowUsed)return null;
+  var hi=d.querySelector('.hi');return hi?hi.dataset.v:null;
+}
+function acMarkArrow(dropId){
+  var d=document.getElementById(dropId);if(d)d.dataset.arrowUsed='1';
+}
+function acClearArrow(dropId){
+  var d=document.getElementById(dropId);if(d)delete d.dataset.arrowUsed;
+}
+
+// Item field key handlers
+function iiKey(e,iid){
+  var dropId='acd_ii_'+iid;
+  var d=document.getElementById(dropId);
+  var open=d&&d.classList.contains('show');
+  var inp=document.getElementById('ii_'+iid);
+  // Tab: only select top suggestion when field is empty AND dropdown is open
+  if(e.key==='Tab'){
+    if(e.shiftKey){e.preventDefault();acHide(dropId);acClearArrow(dropId);formPrev();return;}
+    // Tab forward: validate item name first
+    if(!inp||!inp.value.trim()){e.preventDefault();if(inp){inp.style.borderColor='var(--rd)';}toast('Item name required');return;}
+    if(inp)inp.style.borderColor='';
+    if(open){e.preventDefault();var v=acGetTop(dropId);if(v){selItem(iid,v);return;}acHide(dropId);acClearArrow(dropId);formNext();return;}
+    return;
+  }
+  if(e.key==='ArrowDown'){e.preventDefault();if(open){acMoveHi(dropId,1);acMarkArrow(dropId);}else{acRender(dropId,acSuggestions('item',inp?inp.value:''),function(v){selItem(iid,v);});acClearArrow(dropId);}return;}
+  if(e.key==='ArrowUp'&&open){e.preventDefault();acMoveHi(dropId,-1);acMarkArrow(dropId);return;}
+  if(e.key==='Escape'){if(open){acHide(dropId);acClearArrow(dropId);}else closeOvl();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(open){
+      var sel=acGetHighlighted(dropId);
+      if(sel){acClearArrow(dropId);selItem(iid,sel);return;}
+      acHide(dropId);acClearArrow(dropId);
+    }
+    if(inp&&!inp.value.trim()){inp.style.borderColor='var(--rd)';toast('Item name required');return;}
+    if(inp)inp.style.borderColor='';
+    formNext();
+  }
+}
+function diKey(e,iid){
+  var dropId='acd_di_'+iid;
+  var d=document.getElementById(dropId);
+  var open=d&&d.classList.contains('show');
+  var inp=document.getElementById('di_'+iid);
+  var ii=document.getElementById('ii_'+iid);
+  if(e.key==='Tab'){
+    if(e.shiftKey){e.preventDefault();acHide(dropId);acClearArrow(dropId);formPrev();return;}
+    if(open){e.preventDefault();var v=acGetTop(dropId);if(v){selDesign(iid,v);return;}acHide(dropId);acClearArrow(dropId);formNext();return;}
+    return;
+  }
+  if(e.key==='ArrowDown'){e.preventDefault();if(open){acMoveHi(dropId,1);acMarkArrow(dropId);}else{acRender(dropId,acSuggestions('design',inp?inp.value:'',ii?ii.value:''),function(v){selDesign(iid,v);});acClearArrow(dropId);}return;}
+  if(e.key==='ArrowUp'&&open){e.preventDefault();acMoveHi(dropId,-1);acMarkArrow(dropId);return;}
+  if(e.key==='Escape'){if(open){acHide(dropId);acClearArrow(dropId);}else closeOvl();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(open){var sel=acGetHighlighted(dropId);if(sel){acClearArrow(dropId);selDesign(iid,sel);return;}acHide(dropId);acClearArrow(dropId);}
+    formNext();
+  }
+}
+function siKey(e,iid){
+  var dropId='acd_si_'+iid;
+  var d=document.getElementById(dropId);
+  var open=d&&d.classList.contains('show');
+  var inp=document.getElementById('si_'+iid);
+  if(e.key==='Tab'){
+    if(e.shiftKey){e.preventDefault();acHide(dropId);acClearArrow(dropId);formPrev();return;}
+    if(open){e.preventDefault();var v=acGetTop(dropId);if(v){selSup(iid,v);return;}acHide(dropId);acClearArrow(dropId);formNext();return;}
+    return;
+  }
+  if(e.key==='ArrowDown'){e.preventDefault();if(open){acMoveHi(dropId,1);acMarkArrow(dropId);}else{acRender(dropId,acSuggestions('supplier',inp?inp.value:''),function(v){selSup(iid,v);});acClearArrow(dropId);}return;}
+  if(e.key==='ArrowUp'&&open){e.preventDefault();acMoveHi(dropId,-1);acMarkArrow(dropId);return;}
+  if(e.key==='Escape'){if(open){acHide(dropId);acClearArrow(dropId);}else closeOvl();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(open){var sel=acGetHighlighted(dropId);if(sel){acClearArrow(dropId);selSup(iid,sel);return;}acHide(dropId);acClearArrow(dropId);}
+    formNext();
+  }
+}
+function unitKey(e,iid){
+  var dropId='acd_ui_'+iid;
+  var d=document.getElementById(dropId);
+  var open=d&&d.classList.contains('show');
+  var inp=document.getElementById('ui_'+iid);
+  var cb=function(v){if(inp)inp.value=v;updFI(iid,'unit',v);acHide(dropId);acClearArrow(dropId);};
+  if(e.key==='Tab'){
+    if(e.shiftKey){e.preventDefault();acHide(dropId);acClearArrow(dropId);formPrev();return;}
+    if(open){e.preventDefault();var v=acGetTop(dropId);if(v){cb(v);return;}acHide(dropId);acClearArrow(dropId);formNext();return;}
+    return;
+  }
+  if(e.key==='ArrowDown'){e.preventDefault();if(open){acMoveHi(dropId,1);acMarkArrow(dropId);}else{acRender(dropId,acSuggestions('unit',inp?inp.value:''),cb);acClearArrow(dropId);}return;}
+  if(e.key==='ArrowUp'&&open){e.preventDefault();acMoveHi(dropId,-1);acMarkArrow(dropId);return;}
+  if(e.key==='Escape'){if(open){acHide(dropId);acClearArrow(dropId);}else closeOvl();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(open){var sel=acGetHighlighted(dropId);if(sel){cb(sel);return;}acHide(dropId);acClearArrow(dropId);}
+    formNext();
+  }
+}
+function genericKey(e){
+  if(e.key==='Tab'&&e.shiftKey){e.preventDefault();formPrev();return;}
+  if(e.key==='Enter'){e.preventDefault();formNext();}
+  if(e.key==='Escape'){closeOvl();}
+}
+function dateKey(e,inp){
+  // Allow arrow keys for cursor movement - don't intercept them
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='Home'||e.key==='End')return;
+  // Enter - process date then move to next
+  if(e.key==='Enter'){
+    e.preventDefault();
+    fmtDateInp(inp);
+    inp.dataset.prev=inp.value;
+    formNext();
+    return;
+  }
+  if(e.key==='Escape'){closeOvl();return;}
+  // Backspace - allow normal behavior
+  if(e.key==='Backspace'){
+    return;
+  }
+}
+
+// AC selection callbacks
+function selItem(iid,v){
+  var inp=document.getElementById('ii_'+iid);if(inp)inp.value=v;
+  updFI(iid,'item',v);acHide('acd_ii_'+iid);
+  // Move to design field
+  var di=document.getElementById('di_'+iid);if(di){di.focus();try{di.select();}catch(e){}}
+}
+function selDesign(iid,v){
+  var inp=document.getElementById('di_'+iid);if(inp)inp.value=v;
+  updFI(iid,'designNo',v);acHide('acd_di_'+iid);acClearArrow('acd_di_'+iid);
+  // Move to qty (no auto rate fill — use Alt+R)
+  var qi=document.getElementById('qi_'+iid);if(qi){qi.focus();try{qi.select();}catch(e){}}
+}
+function selSup(iid,v){
+  var inp=document.getElementById('si_'+iid);if(inp)inp.value=v;
+  updFI(iid,'supplierNo',v);acHide('acd_si_'+iid);
+  var sc=document.getElementById('sc_'+iid);if(sc){sc.focus();try{sc.select();}catch(e){}}
+}
+
+function openForm(id){
+  FCid=id;
+  var ex=id?DB.find(function(c){return c.id===id;}):null;
+  FCparty=ex?ex.party:'';
+  FItems=ex?JSON.parse(JSON.stringify(ex.items)):[newItem()];
+  var body=
+    '<div class="sec">Party Details</div>'+
+    // Party Name
+    '<div class="fg">'+
+    '<label class="fl">Party Name *</label>'+
+    '<input class="fi" id="fp" type="text" placeholder="e.g. Sharma Textiles" value="'+esc(ex?ex.party:'')+'" autocomplete="off"'+
+    ' oninput="FCparty=this.value;refreshFormGST();acRender(\'acd_fp\',acSuggestions(\'party\',this.value),selParty)"'+
+    ' onfocus="acRender(\'acd_fp\',acSuggestions(\'party\',this.value),selParty)"'+
+    ' onblur="setTimeout(function(){acHide(\'acd_fp\');},180)"'+
+    ' onkeydown="fpKey(event)"/>'+
+    '<div class="acd" id="acd_fp"></div>'+
+    '</div>'+
+    // Chalan No + Date
+    '<div class="fr2">'+
+    '<div class="fg"><label class="fl">Chalan No. *</label>'+
+    '<input class="fi" id="fcn" type="text" placeholder="e.g. 1042" value="'+esc(ex?ex.chalanNo:'')+'"'+
+    ' onkeydown="fcnKey(event)" oninput="updFCN()"/></div>'+
+    // Date as DD/MM/YY - 3 separate inputs
+    '<div class="fg"><label class="fl">Date <span style="font-size:9px;color:var(--t3)">(DD/MM/YY)</span></label>'+
+    '<div style="display:flex;align-items:center;gap:6px">'+
+    '<input class="fi" id="fdd" type="text" maxlength="2" placeholder="DD"'+
+    ' style="width:60px;text-align:center;padding:10px 4px"'+
+    ' value="'+(ex?toDisplay(ex.date).split('/')[0]:toDisplay(today()).split('/')[0])+'"'+
+    ' oninput="dtInp(this,\'fmm\')" onkeydown="dtKey(event,null,\'fmm\')"/>'+
+    '<span style="color:var(--t3);font-size:18px;padding:0 2px">/</span>'+
+    '<input class="fi" id="fmm" type="text" maxlength="2" placeholder="MM"'+
+    ' style="width:60px;text-align:center;padding:10px 4px"'+
+    ' value="'+(ex?toDisplay(ex.date).split('/')[1]:toDisplay(today()).split('/')[1])+'"'+
+    ' oninput="dtInp(this,\'fyy\')" onkeydown="dtKey(event,\'fdd\',\'fyy\')"/>'+
+    '<span style="color:var(--t3);font-size:18px;padding:0 2px">/</span>'+
+    '<input class="fi" id="fyy" type="text" maxlength="2" placeholder="YY"'+
+    ' style="width:60px;text-align:center;padding:10px 4px"'+
+    ' value="'+(ex?toDisplay(ex.date).split('/')[2]:toDisplay(today()).split('/')[2])+'"'+
+    ' oninput="dtInp(this,null)" onkeydown="dtKey(event,\'fmm\',null)"/>'+
+    '</div></div></div>'+
+    '<div class="sec">Items</div>'+
+    '<div id="fitms">'+FItems.map(function(it,i){return buildItemCard(it,i,FItems.length);}).join('')+'</div>'+
+    '<button class="addb" onclick="addFItem()">'+
+    '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Another Item</button>'+
+    '<div id="ftot" style="text-align:right;margin:8px 0 3px;font-size:13px;color:var(--t2)"></div>'+
+    '<div class="fg" style="margin-top:10px"><label class="fl">General Notes</label>'+
+    '<input class="fi" id="fnt" type="text" placeholder="Any notes" value="'+esc(ex?ex.notes:'')+'"'+
+    ' onkeydown="if(event.key===\'Enter\'){event.preventDefault();saveForm(false);}if(event.key===\'Escape\')closeOvl();"/></div>'+
+    '<div style="background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:9px 11px;margin-top:6px;font-size:11px;color:var(--t3)">'+
+    '<b style="color:var(--t2)">Shortcuts:</b> Tab=suggest &nbsp;|&nbsp; Shift+Tab=back &nbsp;|&nbsp; Enter=next &nbsp;|&nbsp; Shift+Enter=Save &amp; New &nbsp;|&nbsp; Alt+A=add item &nbsp;|&nbsp; Alt+R=rate &nbsp;|&nbsp; Esc=back</div>';
+  var foot=
+    '<button class="btn btns" onclick="closeOvl()">Cancel (Esc)</button>'+
+    '<button class="btn btns" style="flex:0 0 auto;padding:11px 12px;font-size:12px" onclick="saveForm(true)">Save &amp; New</button>'+
+    '<button class="btn btnp" onclick="saveForm(false)">&#x2713; '+(ex?'Update':'Save')+'</button>';
+  showOvl(body,(ex?'Edit':'New')+' Challan',foot);
+  setTimeout(function(){
+    var fp=document.getElementById('fp');
+    if(fp){fp.focus();try{fp.select();}catch(e){}}
+    updFTot();
+    refreshFormGST();
+  },100);
+}
+
+// Party field key handler
+function fcnKey(e){
+  if(e.key==='Escape'){closeOvl();return;}
+  if(e.key==='Tab'&&!e.shiftKey){
+    // Tab forward from challan no — validate first
+    var fcn=document.getElementById('fcn');
+    if(fcn&&!fcn.value.trim()){e.preventDefault();fcn.style.borderColor='var(--rd)';toast('Challan number required');return;}
+    if(fcn)fcn.style.borderColor='';
+    e.preventDefault();formNext();return;
+  }
+  if(e.key==='Tab'&&e.shiftKey){e.preventDefault();formPrev();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    var fcn=document.getElementById('fcn');
+    if(fcn&&!fcn.value.trim()){fcn.style.borderColor='var(--rd)';toast('Challan number required');return;}
+    if(fcn)fcn.style.borderColor='';
+    var fp=document.getElementById('fp');
+    if(fp&&fcn){
+      var party=fp.value.trim(),cn=fcn.value.trim();
+      if(party&&cn){
+        var dup=DB.find(function(cc){return cc.party.toLowerCase()===party.toLowerCase()&&cc.chalanNo===cn&&cc.id!==FCid;});
+        if(dup){toast('Chalan #'+cn+' already exists for '+party+'!');return;}
+      }
+    }
+    formNext();
+  }
+}
+function updFCN(){
+  var fcn=document.getElementById('fcn');
+  if(fcn&&fcn.value.trim())fcn.style.borderColor='';
+}
+
+function fpKey(e){
+  var dropId='acd_fp';
+  var d=document.getElementById(dropId);
+  var open=d&&d.classList.contains('show');
+  var fp=document.getElementById('fp');
+  if(e.key==='Tab'){
+    if(e.shiftKey){e.preventDefault();acHide(dropId);acClearArrow(dropId);formPrev();return;}
+    if(open){e.preventDefault();var v=acGetTop(dropId);if(v){selParty(v);return;}acHide(dropId);acClearArrow(dropId);formNext();return;}
+    return;
+  }
+  if(e.key==='ArrowDown'){
+    e.preventDefault();
+    if(open){acMoveHi(dropId,1);acMarkArrow(dropId);}
+    else{acRender(dropId,acSuggestions('party',fp?fp.value:''),selParty);acClearArrow(dropId);}
+    return;
+  }
+  if(e.key==='ArrowUp'&&open){e.preventDefault();acMoveHi(dropId,-1);acMarkArrow(dropId);return;}
+  if(e.key==='Escape'){if(open){acHide(dropId);acClearArrow(dropId);}else closeOvl();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(open){
+      var sel=acGetHighlighted(dropId);
+      if(sel){acClearArrow(dropId);selParty(sel);return;}
+      acHide(dropId);acClearArrow(dropId);
+    }
+    if(fp&&!fp.value.trim()){fp.style.borderColor='var(--rd)';toast('Party name required');return;}
+    if(fp)fp.style.borderColor='';
+    var fcn=document.getElementById('fcn');if(fcn){fcn.focus();try{fcn.select();}catch(e2){}}
+  }
+}
+function selParty(v){
+  FCparty=v;
+  var fp=document.getElementById('fp');if(fp)fp.value=v;
+  acHide('acd_fp');
+  refreshFormGST();
+  var fcn=document.getElementById('fcn');if(fcn){fcn.focus();try{fcn.select();}catch(e){}}
+}
+
+// Smart date input:
+// 2 digits = change DD only, keep existing MM/YY
+// 4 digits = change DD/MM, keep existing YY
+// 6 digits = change full DD/MM/YY
+function dtInp(inp,nextId){
+  var v=inp.value.replace(/[^0-9]/g,'').slice(0,2);
+  inp.value=v;
+  if(v.length>=2&&nextId){
+    var nx=document.getElementById(nextId);
+    if(nx){nx.focus();try{nx.select();}catch(e2){}}
+  }
+}
+function dtKey(e,prevId,nextId){
+  if(e.key==='Tab'&&e.shiftKey){e.preventDefault();formPrev();return;}
+  if(e.key==='Backspace'&&!e.target.value&&prevId){
+    e.preventDefault();
+    var pv=document.getElementById(prevId);
+    if(pv){pv.focus();try{pv.select();}catch(e2){}}
+    return;
+  }
+  if(e.key==='ArrowLeft'&&prevId&&e.target.selectionStart===0){
+    e.preventDefault();
+    var pv=document.getElementById(prevId);if(pv)pv.focus();return;
+  }
+  if(e.key==='ArrowRight'&&nextId&&e.target.selectionStart>=e.target.value.length){
+    e.preventDefault();
+    var nx=document.getElementById(nextId);if(nx)nx.focus();return;
+  }
+  if(e.key==='Enter'){e.preventDefault();formNext();return;}
+  if(e.key==='Escape'){closeOvl();return;}
+}
+function getDateVal(){
+  var todayParts=toDisplay(today()).split('/');
+  var dd=(document.getElementById('fdd')?document.getElementById('fdd').value.trim():'');
+  var mm=(document.getElementById('fmm')?document.getElementById('fmm').value.trim():'');
+  var yy=(document.getElementById('fyy')?document.getElementById('fyy').value.trim():'');
+  if(!dd||dd==='0')dd=todayParts[0];
+  if(!mm||mm==='0')mm=todayParts[1];
+  if(!yy||yy==='0')yy=todayParts[2];
+  dd=dd.padStart(2,'0');mm=mm.padStart(2,'0');yy=yy.padStart(2,'0');
+  return toISO(dd+'/'+mm+'/'+yy);
+}
+
+
+function addFItem(){
+  var fpEl=document.getElementById('fp');
+  var fcnEl=document.getElementById('fcn');
+  if(fpEl&&!fpEl.value.trim()){fpEl.style.borderColor='var(--rd)';toast('Party name required');fpEl.focus();return;}
+  if(fpEl)fpEl.style.borderColor='';
+  if(fcnEl&&!fcnEl.value.trim()){fcnEl.style.borderColor='var(--rd)';toast('Challan number required');fcnEl.focus();return;}
+  if(fcnEl)fcnEl.style.borderColor='';
+  FItems.push(newItem());
+  document.getElementById('fitms').innerHTML=FItems.map(function(it,i){return buildItemCard(it,i,FItems.length);}).join('');
+  updFTot();
+  // Focus new item's item name field
+  var last=FItems[FItems.length-1];
+  setTimeout(function(){var el=document.getElementById('ii_'+last.id);if(el)el.focus();},50);
+}
+function rmFItem(id){
+  if(FItems.length<=1)return;
+  FItems=FItems.filter(function(i){return i.id!==id;});
+  document.getElementById('fitms').innerHTML=FItems.map(function(it,i){return buildItemCard(it,i,FItems.length);}).join('');
+  updFTot();
+}
+function saveForm(openNew){
+  var party=(document.getElementById('fp')?document.getElementById('fp').value:'').trim();
+  var cn=(document.getElementById('fcn')?document.getElementById('fcn').value:'').trim();
+  var dtRaw=getDateVal();
+  var nt=(document.getElementById('fnt')?document.getElementById('fnt').value:'').trim();
+  if(!party){
+    toast('Party name required');
+    var fp2=document.getElementById('fp');if(fp2){fp2.focus();fp2.style.borderColor='var(--rd)';}
+    return;
+  }
+  if(!cn){
+    toast('Challan number required');
+    var fcn2=document.getElementById('fcn');if(fcn2){fcn2.focus();fcn2.style.borderColor='var(--rd)';}
+    return;
+  }
+  var emptyItem=FItems.find(function(i){return!i.item.trim();});
+  if(emptyItem){
+    toast('Item name required');
+    var iel=document.getElementById('ii_'+emptyItem.id);if(iel){iel.focus();iel.style.borderColor='var(--rd)';}
+    return;
+  }
+  var dup=DB.find(function(c){return c.party.toLowerCase()===party.toLowerCase()&&c.chalanNo===cn&&c.id!==FCid;});
+  if(dup){toast('Chalan #'+cn+' already exists for '+party);return;}
+  if(UNIT_ON){FItems.forEach(function(item){var s=document.getElementById('ui_'+item.id);if(s)item.unit=s.value;});}
+  var data={id:FCid||uid(),party:party,chalanNo:cn,date:dtRaw,notes:nt,items:FItems,createdAt:FCid?(DB.find(function(c){return c.id===FCid;})||{}).createdAt||new Date().toISOString():new Date().toISOString(),updatedAt:new Date().toISOString()};
+  if(FCid){DB=DB.map(function(c){return c.id===FCid?data:c;});toast('Updated &#x2713;');}
+  else{DB=[data].concat(DB);toast('Saved &#x2713;');}
+  if(FItems.length>0){
+    var li=FItems[0];
+    lastUsed={item:li.item||lastUsed.item,designNo:li.designNo||lastUsed.designNo,qty:li.qty||lastUsed.qty,rate:li.rate||lastUsed.rate,gstRate:li.gstRate!==undefined?li.gstRate:lastUsed.gstRate,supplierNo:li.supplierNo||lastUsed.supplierNo,supplierChalanNo:li.supplierChalanNo||lastUsed.supplierChalanNo,unit:li.unit||lastUsed.unit};
+  }
+  persist();
+  var savedId=data.id;
+  if(openNew){FCid=null;FItems=[newItem()];setTimeout(function(){openForm(null);},50);}
+  else{FCid=null;FItems=[newItem()];closeOvl();setTimeout(function(){openDetail(savedId);},60);}
+}
+
+// ═══════════════ DETAIL VIEW ═══════════════
+function openDetail(id){
+  selCard=id;render();
+  var c=DB.find(function(x){return x.id===id;});if(!c)return;
+  var t=cTotal(c);
+  var rc=c.items.filter(function(i){return i.received;}).length;
+  var ar=c.items.every(function(i){return i.received;});
+  var rows=c.items.map(function(item,idx){
+    var amt=(parseFloat(item.qty)||0)*(parseFloat(item.rate)||0);
+    var g=GST_ON?(parseFloat(item.gstRate)||0)*amt/100:0;
+    return '<div class="irow '+(item.received?'recv':'')+'">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:7px">'+
+      '<div style="flex:1">'+
+      '<div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">'+
+      '<span style="font-size:10px;background:var(--s2);border-radius:5px;padding:1px 6px;color:var(--t3)">#'+(idx+1)+'</span>'+
+      '<span class="iname">'+esc(item.item)+'</span></div>'+
+      '<div class="imeta">'+
+      (item.designNo?'<span>Design: <b>'+esc(item.designNo)+'</b></span>':'')+
+      (item.qty?'<span>Qty: <b>'+item.qty+' '+(item.unit||'pcs')+'</b></span>':'')+
+      (item.rate?'<span>&#x20B9;'+item.rate+'</span>':'')+
+      (amt>0?'<span class="ival">&#x20B9;'+amt.toLocaleString('en-IN')+'</span>':'')+
+      (GST_ON&&g>0?'<span style="color:var(--bl)">+'+item.gstRate+'% GST=&#x20B9;'+g.toLocaleString('en-IN')+'</span>':'')+
+      (GST_ON&&g>0?'<span style="color:var(--gr);font-weight:700">&#x20B9;'+(amt+g).toLocaleString('en-IN')+'</span>':'')+
+      '</div>'+
+      ((item.supplierNo||item.supplierChalanNo)?'<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px">'+
+      (item.supplierNo?'<span style="font-size:11px;background:rgba(129,140,248,.12);border:1px solid rgba(129,140,248,.25);border-radius:5px;padding:2px 7px;color:#a5b4fc">Sup: '+esc(item.supplierNo)+'</span>':'')+
+      (item.supplierChalanNo?'<span style="font-size:11px;background:rgba(129,140,248,.12);border:1px solid rgba(129,140,248,.25);border-radius:5px;padding:2px 7px;color:#a5b4fc">SC: '+esc(item.supplierChalanNo)+'</span>':'')+
+      '</div>':'')+
+      (item.notes?'<div style="font-size:11px;color:var(--t3);margin-top:3px;font-style:italic">'+esc(item.notes)+'</div>':'')+
+      (item.received&&item.receivedDate?'<div style="font-size:11px;color:var(--gr);margin-top:3px">&#x2713; Recv '+toDisplay(item.receivedDate)+'</div>':'')+
+      '</div>'+
+      '<button class="rbtn '+(item.received?'yes':'')+'" onclick="toggleItem(\''+esc(c.id)+'\',\''+esc(item.id)+'\')">'+
+      (item.received?'&#x2713;':'Mark')+'</button></div></div>';
+  }).join('');
+  var sumBox='';
+  if((GST_ON&&t.gst>0)||(TDS_ON&&t.tds>0)){
+    sumBox='<div style="background:var(--s2);border-radius:10px;padding:11px;margin-bottom:10px">'+
+      '<div style="display:flex;justify-content:space-between;font-size:13px;padding:3px 0"><span>Subtotal</span><b>&#x20B9;'+t.sub.toLocaleString('en-IN')+'</b></div>'+
+      (GST_ON&&t.gst>0?'<div style="display:flex;justify-content:space-between;font-size:13px;padding:3px 0"><span style="color:var(--bl)">+ GST</span><b style="color:var(--bl)">&#x20B9;'+t.gst.toLocaleString('en-IN')+'</b></div>':'')+
+      (TDS_ON&&t.tds>0?'<div style="display:flex;justify-content:space-between;font-size:13px;padding:3px 0"><span style="color:var(--or)">- TDS ('+getTDS(c.party)+'%)</span><b style="color:var(--or)">&#x20B9;'+t.tds.toLocaleString('en-IN')+'</b></div>':'')+
+      '<div style="display:flex;justify-content:space-between;font-size:15px;padding:5px 0 0;border-top:1px solid var(--bd);margin-top:3px"><b>Net Payable</b><b style="color:var(--gr)">&#x20B9;'+t.net.toLocaleString('en-IN')+'</b></div></div>';
+  }
+  var body='<div class="dparty">'+esc(c.party)+(c.isPaid?'<span style="background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.25);padding:2px 10px;border-radius:8px;font-size:12px;font-weight:700;margin-left:8px">&#x1F4B0; PAID</span>':'')+'</div>'+
+    '<div class="dchips">'+
+    '<div class="dchip">Chalan # <b>'+esc(c.chalanNo)+'</b></div>'+
+    '<div class="dchip">Date: <b>'+toDisplay(c.date)+'</b></div>'+
+    '<div class="dchip">'+c.items.length+' item'+(c.items.length!==1?'s':'')+'</div>'+
+    (t.sub>0?'<div class="dchip">Sub: <b style="color:var(--ac)">&#x20B9;'+t.sub.toLocaleString('en-IN')+'</b></div>':'')+
+    (GST_ON&&t.gst>0?'<div class="dchip">+GST: <b style="color:var(--bl)">&#x20B9;'+t.gst.toLocaleString('en-IN')+'</b></div>':'')+
+    (TDS_ON&&t.tds>0?'<div class="dchip">-TDS: <b style="color:var(--or)">&#x20B9;'+t.tds.toLocaleString('en-IN')+'</b></div>':'')+
+    '</div>'+
+    '<div style="padding:0 14px">'+sumBox+
+    '<div class="sec">Items ('+rc+'/'+c.items.length+' received)</div>'+rows+
+    '<button class="mkall '+(ar?'undo':'do')+'" onclick="markAll(\''+esc(c.id)+'\')">'+
+    (ar?'&#x21A9; Mark All Pending':'&#x2713; Mark All Received')+'</button>'+
+    (c.notes?'<div class="sec">Notes</div><div style="background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:9px 11px;font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:10px">'+esc(c.notes)+'</div>':'')+
+    '</div>';
+  var foot=
+    '<button class="btn btnd" style="flex:0 0 auto;padding:11px 13px" onclick="closeOvl();confirmDel(\''+esc(c.id)+'\')" title="-">'+
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg></button>'+
+    '<button class="btn" style="flex:0 0 auto;padding:11px 11px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);color:#25d366;border-radius:8px;cursor:pointer;font-family:inherit;font-size:12px;font-weight:700" onclick="sharePartyWA(\''+esc(c.id)+'\')" title="Share WhatsApp (Alt+S)">'+
+    '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></button>'+
+    '<button class="btn btno" onclick="printChalan(\''+esc(c.id)+'\')" title="Print challan (Alt+D)">'+
+    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Print</button>'+
+    '<button class="btn btns" onclick="closeOvl();openForm(\''+esc(c.id)+'\')">&#x270E; Edit</button>';
+  showOvl(body,'Chalan Details',foot,'closeOvl');
+}
+function toggleItem(cid,iid){
+  DB=DB.map(function(c){if(c.id!==cid)return c;return Object.assign({},c,{items:c.items.map(function(i){if(i.id!==iid)return i;var nr=!i.received;return Object.assign({},i,{received:nr,receivedDate:nr?today():''});})});});
+  persist();openDetail(cid);
+}
+function markAll(cid){
+  DB=DB.map(function(c){if(c.id!==cid)return c;var done=c.items.every(function(i){return i.received;});return Object.assign({},c,{items:c.items.map(function(i){return Object.assign({},i,{received:!done,receivedDate:!done?today():''});})});});
+  persist();openDetail(cid);toast('All items updated');
+}
+
+// ═══════════════ DELETE ═══════════════
+function confirmDel(id){
+  var c=DB.find(function(x){return x.id===id;});
+  document.getElementById('OVL').innerHTML='<div class="cfm"><div class="cfmbox">'+
+    '<div class="cfmtit">Delete Challan?</div>'+
+    '<div class="cfmmsg">Chalan #<b>'+esc(c?c.chalanNo:'')+
+    '</b> for <b>'+esc(c?c.party:'')+'</b> will move to Trash (auto-delete in 5 days).</div>'+
+    '<div class="cfmact">'+
+    '<button class="btn btns" id="cfmCancelBtn" onclick="document.getElementById(\'OVL\').innerHTML=\'\'">Cancel (Esc)</button>'+
+    '<button class="btn btnd" id="cfmDelBtn" onclick="moveToTrash(\''+esc(id)+'\')">Move to Trash</button>'+
+    '</div></div></div>';
+  // Keyboard: Enter = delete, Escape = cancel
+  function cfmKey(e){
+    if(e.key==='Enter'){e.preventDefault();document.removeEventListener('keydown',cfmKey,true);moveToTrash(id);}
+    else if(e.key==='Escape'){e.preventDefault();document.removeEventListener('keydown',cfmKey,true);document.getElementById('OVL').innerHTML='';}
+  }
+  document.addEventListener('keydown',cfmKey,true);
+}
+// doDel removed — use moveToTrash() instead
+
+// ═══════════════ OVERLAY ═══════════════
+function showOvl(body,title,foot,backFn){
+  var closeFn=backFn?'('+backFn+')()':'closeOvl()';
+  var backBtn=backFn?
+    '<button onclick="'+closeFn+'" style="background:none;border:1px solid var(--bd2);border-radius:7px;cursor:pointer;color:var(--t2);padding:5px 10px;font-size:12px;display:flex;align-items:center;gap:4px;font-family:inherit;font-weight:600" title="Back (Esc)">'+
+    '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg> Back <span style="font-size:10px;color:var(--t3);background:var(--s3);border-radius:4px;padding:1px 5px">Esc</span></button>':'';
+  document.getElementById('OVL').innerHTML=
+    '<div class="ov" onclick="if(event.target===this){'+closeFn+';}">'+
+    '<div class="sh"><div class="drag"></div>'+
+    '<div class="shhdr">'+
+    '<div style="display:flex;align-items:center;gap:8px">'+
+    (backBtn||'')+
+    '<div class="shtit">'+esc(title)+'</div>'+
+    '</div>'+
+    '<button onclick="'+closeFn+'" style="background:none;border:none;cursor:pointer;color:var(--t2);padding:4px" title="Close">'+
+    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>'+
+    '<div class="shbody">'+body+'</div>'+
+    (foot?'<div class="shfoot">'+foot+'</div>':'')+
+    '</div></div>';
+}
+function closeOvl(){document.getElementById('OVL').innerHTML='';render();}
+
+// ═══════════════ CARD NAVIGATION ═══════════════
+function navCard(dir){
+  var cards=Array.from(document.querySelectorAll('#CNT .card[data-id]'));
+  if(!cards.length)return;
+  var cur=-1;
+  if(selCard){for(var i=0;i<cards.length;i++){if(cards[i].dataset.id===selCard){cur=i;break;}}}
+  var nx;
+  if(cur===-1){nx=dir===1?0:cards.length-1;}
+  else{nx=cur+dir;if(nx<0)nx=0;if(nx>=cards.length)nx=cards.length-1;}
+  document.querySelectorAll('#CNT .card').forEach(function(c){c.classList.remove('ksel');});
+  cards[nx].classList.add('ksel');
+  selCard=cards[nx].dataset.id;
+  cards[nx].scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function navSummary(dir){
+  var cards=Array.from(document.querySelectorAll('#CNT .pc[data-party]'));
+  if(!cards.length)return;
+  if(selSummaryIdx===-1)selSummaryIdx=dir===1?0:cards.length-1;
+  else{selSummaryIdx+=dir;if(selSummaryIdx<0)selSummaryIdx=0;if(selSummaryIdx>=cards.length)selSummaryIdx=cards.length-1;}
+  cards.forEach(function(c){c.style.boxShadow='';c.style.borderColor='';});
+  cards[selSummaryIdx].style.boxShadow='0 0 0 2px var(--ac)';
+  cards[selSummaryIdx].style.borderColor='var(--ac)';
+  cards[selSummaryIdx].scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+
+// ═══════════════ PROFILE ═══════════════
+
+function gstToggle(idx){
+  var parties=[...new Set(DB.map(function(c){return c.party;}))].sort();
+  var p=parties[idx];if(!p)return;
+  var m=getGSTParties();
+  if(m[p])delete m[p];else m[p]=true;
+  lsw('nc_gsp',JSON.stringify(m));
+  syncSettings();
+  openProfile();
+}
+function openProfile(){
+  var tdsMap=getAllTDS();
+  var parties=[...new Set(DB.map(function(c){return c.party;}))].sort();
+  function tog(on,fn){
+    return '<button class="tog '+(on?'on':'off')+'" onclick="'+fn+'"></button>';
+  }
+  var gstRows=GST_ON&&parties.length?
+    (function(){
+      var gm=getGSTParties();
+      var rows=parties.map(function(p,idx){
+        var gon=!!(gm[p]);
+        return '<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd)">'+
+          '<span style="font-size:12px;font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px">'+esc(p)+'</span>'+
+          '<button onclick="gstToggle('+idx+')" style="'+
+            'min-width:52px;height:24px;border-radius:12px;border:none;cursor:pointer;font-size:10px;font-weight:700;'+
+            'background:'+(gon?'var(--gr)':'var(--s3)')+';'+
+            'color:'+(gon?'#fff':'var(--t3)')+';'+
+            'transition:all .2s;flex-shrink:0">'+
+            (gon?'ON':'OFF')+
+          '</button></div>';
+      }).join('');
+      return '<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:10px 13px;margin-top:4px;margin-bottom:4px">'+
+        '<div style="font-size:10px;color:var(--t3);margin-bottom:6px">Party GST — new parties OFF by default</div>'+
+        rows+'</div>';
+    })():
+    (GST_ON?'<div style="font-size:12px;color:var(--t3);padding:4px 0 8px">No parties yet.</div>':'');
+  var tdsRows=TDS_ON&&parties.length?
+    '<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;margin-top:4px;margin-bottom:4px">'+
+    '<div style="font-size:11px;color:var(--t3);margin-bottom:9px">Party TDS% — applies to ALL chalans (past &amp; future) automatically</div>'+
+    parties.map(function(p,i){
+      return '<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd)">'+
+        '<span style="font-size:13px;font-weight:600">'+esc(p)+'</span>'+
+        '<div style="display:flex;align-items:center;gap:5px">'+
+        '<input type="number" value="'+(tdsMap[p]||0)+'" min="0" max="100" class="fi" style="width:62px;padding:5px 7px;font-size:13px;text-align:center" onchange="setTDS(\''+esc(p)+'\',this.value);render()" onkeydown="if(event.key===\'Enter\'){event.preventDefault();setTDS(\''+esc(p)+'\',this.value);this.blur();render();toast(\'TDS saved\');}"/>'+
+        '<span style="font-size:12px;color:var(--t3)">%</span></div></div>';
+    }).join('')+'</div>':
+    (TDS_ON?'<div style="font-size:12px;color:var(--t3);padding:4px 0 8px">No parties yet. Add chalans first.</div>':'');
+  var unitTags=UNITS.map(function(u){
+    return '<span style="display:inline-flex;align-items:center;gap:4px;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:4px 9px;font-size:13px;margin:2px">'+
+      esc(u)+'<span style="color:var(--rd);cursor:pointer;font-size:15px;line-height:1;margin-left:2px" onclick="rmUnit(\''+esc(u)+'\')">&times;</span></span>';
+  }).join('');
+  var scTbl='<table class="sctbl">'+
+    '<tr><td colspan="2" style="color:var(--ac);font-size:11px;padding:6px 8px 3px">── CHALLAN FORM ──</td></tr>'+
+    '<tr><td>+ / =</td><td>New challan</td></tr>'+
+    '<tr><td>Tab</td><td>Select top suggestion &amp; next field</td></tr>'+
+    '<tr><td>Shift+Tab</td><td>Previous field</td></tr>'+
+    '<tr><td>Enter</td><td>Next field</td></tr>'+
+    '<tr><td>Arrow ↓↑</td><td>Navigate suggestions</td></tr>'+
+    '<tr><td>Shift+Enter</td><td>Save &amp; new challan</td></tr>'+
+    '<tr><td>Alt+A</td><td>Add item card</td></tr>'+
+    '<tr><td>Alt+R</td><td>Fill rate from previous bill</td></tr>'+
+    '<tr><td>Esc</td><td>Close form</td></tr>'+
+    '<tr><td colspan="2" style="color:var(--ac);font-size:11px;padding:6px 8px 3px">── CHALLAN DETAIL ──</td></tr>'+
+    '<tr><td>E</td><td>Edit challan</td></tr>'+
+    '<tr><td>Alt+D</td><td>Print challan</td></tr>'+
+    '<tr><td>Alt+S</td><td>Share on WhatsApp</td></tr>'+
+    '<tr><td>Shift+-</td><td>Move to Trash</td></tr>'+
+    '<tr><td>Enter</td><td>Close detail</td></tr>'+
+    '<tr><td>Enter ×2 (&lt;1s)</td><td>Close + new challan</td></tr>'+
+    '<tr><td>Esc</td><td>Back</td></tr>'+
+    '<tr><td colspan="2" style="color:var(--ac);font-size:11px;padding:6px 8px 3px">── MAIN SCREEN ──</td></tr>'+
+    '<tr><td>+ / =</td><td>New challan</td></tr>'+
+    '<tr><td>↓ / ↑</td><td>Select challan</td></tr>'+
+    '<tr><td>Enter</td><td>Open selected</td></tr>'+
+    '<tr><td>E</td><td>Edit selected</td></tr>'+
+    '<tr><td>Shift+-</td><td>Delete selected</td></tr>'+
+    '<tr><td>/ or Ctrl+F</td><td>Focus search</td></tr>'+
+    '<tr><td>1 / 2</td><td>Chalans / Summary tab</td></tr>'+
+    '<tr><td>P</td><td>Profile</td></tr>'+
+    '<tr><td>T</td><td>Toggle theme</td></tr>'+
+    '<tr><td>PgUp / PgDn</td><td>Scroll fast</td></tr>'+
+    '<tr><td>Esc</td><td>Back / deselect</td></tr>'+
+    '<tr><td colspan="2" style="color:var(--ac);font-size:11px;padding:6px 8px 3px">── MULTI-SELECT ──</td></tr>'+
+    '<tr><td>Long Press</td><td>Enter multi-select (mobile)</td></tr>'+
+    '<tr><td>Ctrl+Space</td><td>Enter multi-select (keyboard)</td></tr>'+
+    '<tr><td>⋮ button</td><td>Mark Paid / Print / Trash / Delete…</td></tr>'+
+    '<tr><td>Esc</td><td>Exit multi-select</td></tr>'+
+    '</table>';
+  // ── Dashboard stats ──
+  var allItems=DB.flatMap(function(ch){return ch.items;});
+  var totCh=DB.length;
+  var totItems=allItems.length;
+  var recItems=allItems.filter(function(i){return i.received;}).length;
+  var penItems=totItems-recItems;
+  var totVal=DB.reduce(function(s,ch){return s+cTotal(ch).net;},0);
+  var recVal=DB.reduce(function(s,ch){
+    var t=cTotal(ch);
+    if(ch.items.length&&ch.items.every(function(i){return i.received;}))return s+t.net;
+    return s;
+  },0);
+  var parCount=[...new Set(DB.map(function(ch){return ch.party;}))].length;
+  var trash=getTrash();
+  // Recent activity — last 7 days
+  var sevenAgo=new Date(Date.now()-7*24*3600*1000).toISOString();
+  var recent=DB.filter(function(ch){return(ch.createdAt||ch.updatedAt||'')>sevenAgo;}).length;
+  // Top party
+  var pm={};DB.forEach(function(ch){pm[ch.party]=(pm[ch.party]||0)+1;});
+  var topParty=Object.entries(pm).sort(function(a,b){return b[1]-a[1];})[0];
+  // Pct received
+  var pct=totItems>0?Math.round(recItems/totItems*100):0;
+
+  var h='<div style="text-align:center;padding:20px 0 12px">'+
+    '<div style="width:68px;height:68px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#0a0e1a;margin:0 auto 10px;font-family:Georgia,serif;box-shadow:0 10px 28px rgba(245,158,11,.4)">N</div>'+
+    '<div style="font-size:19px;font-weight:900">Nilansh Creation</div>'+
+    '<div style="font-size:11px;color:var(--t3);margin-top:3px;letter-spacing:.5px;text-transform:uppercase">Dispatch Manager</div></div>'+
+    '<div style="margin-bottom:12px"><button onclick="closeOvl();openDashboard()" style="width:100%;padding:12px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.08));border:1px solid rgba(245,158,11,.3);border-radius:12px;color:var(--ac);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px">'+
+    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>'+
+    'Open Dashboard ›</button></div>'+
+        '<div class="psec">Account</div>'+
+    '<div class="pbox">'+
+    '<div class="prow"><div><div class="plbl">Change PIN</div><div class="psbl">Admin password required</div></div>'+
+    '<button class="pbtn" onclick="closeOvl();openChangePin()">Change</button></div>'+
+    '<div class="prow"><div><div class="plbl">Change Admin Password</div><div class="psbl">Requires current admin password</div></div>'+
+    '<button class="pbtn" onclick="closeOvl();openChangeAdm()">Change</button></div>'+
+    '<div class="prow"><div><div class="plbl">Lock App</div></div>'+
+    '<button class="pbtn" onclick="closeOvl();lockApp()">Lock</button></div></div>'+
+    '<div class="psec">GST Settings</div>'+
+    '<div class="pbox"><div class="prow"><div><div class="plbl">Enable GST</div><div class="psbl">Per-item GST (admin required)</div></div>'+
+    '<div style="display:flex;align-items:center;gap:7px"><span style="font-size:11px;color:var(--t3)">'+(GST_ON?'On':'Off')+'</span>'+tog(GST_ON,'doToggleGST()')+'</div></div></div>'+
+    gstRows+
+    '<div class="psec">TDS Settings</div>'+
+    '<div class="pbox"><div class="prow"><div><div class="plbl">Enable TDS</div><div class="psbl">Party-wise TDS (admin required)</div></div>'+
+    '<div style="display:flex;align-items:center;gap:7px"><span style="font-size:11px;color:var(--t3)">'+(TDS_ON?'On':'Off')+'</span>'+tog(TDS_ON,'doToggleTDS()')+'</div></div></div>'+
+    tdsRows+
+    '<div class="psec">Unit Settings</div>'+
+    '<div class="pbox"><div class="prow"><div><div class="plbl">Enable Unit Field</div><div class="psbl">Shows unit input next to Qty in form</div></div>'+
+    '<div style="display:flex;align-items:center;gap:7px"><span style="font-size:11px;color:var(--t3)">'+(UNIT_ON?'On':'Off')+'</span>'+tog(UNIT_ON,'doToggleUnit()')+'</div></div></div>'+
+    (UNIT_ON?
+      '<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;margin-bottom:4px">'+
+      '<div style="font-size:11px;color:var(--t3);margin-bottom:8px">Manage units list</div>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:10px">'+unitTags+'</div>'+
+      '<div style="display:flex;gap:7px"><input class="fi" id="nuin" type="text" placeholder="New unit e.g. roll" style="flex:1;padding:8px 10px;font-size:13px" onkeydown="if(event.key===\'Enter\')addUnit()"/>'+
+      '<button class="pbtn" onclick="addUnit()">+ Add</button></div></div>':
+      '')+
+    '<div class="psec">Print</div>'+
+    '<div class="pbox">'+
+    '<div class="prow"><div><div class="plbl">Show Header</div></div><div style="display:flex;align-items:center;gap:7px"><span style="font-size:11px;color:var(--t3)">'+(PH?'On':'Off')+'</span>'+tog(PH,'setPrint("H")')+'</div></div>'+
+    '<div class="prow"><div><div class="plbl">Show Logo</div></div><div style="display:flex;align-items:center;gap:7px"><span style="font-size:11px;color:var(--t3)">'+(PL?'On':'Off')+'</span>'+tog(PL,'setPrint("L")')+'</div></div>'+
+    '<div class="prow"><div><div class="plbl">Show Footer</div></div><div style="display:flex;align-items:center;gap:7px"><span style="font-size:11px;color:var(--t3)">'+(PF?'On':'Off')+'</span>'+tog(PF,'setPrint("F")')+'</div></div></div>'+
+    '<div class="psec">Data</div>'+
+    '<div class="pbox">'+
+    '<div class="prow"><div><div class="plbl">Sync</div><div class="psbl" style="color:var(--gr)">&#x25CF; Auto-syncing every 5s</div></div><button class="pbtn" onclick="manualSync()">Sync Now</button></div>'+
+    '<div class="prow"><div><div class="plbl">Export PDF</div><div class="psbl">Party-wise or all chalans</div></div><button class="pbtn" onclick="openExportPDFOptions()">Export</button></div>'+
+    '<div class="prow"><div><div class="plbl">Export Excel</div></div><button class="pbtn" onclick="exportExcel()">Export</button></div>'+
+    '<div class="prow"><div><div class="plbl">Import CSV</div></div>'+
+    '<button class="pbtn" onclick="document.getElementById(\'xlf\').click()">Import</button></div>'+
+    '<input type="file" id="xlf" accept=".csv" style="display:none" onchange="importExcel(this)"/>'+
+    '<div class="prow"><div><div class="plbl">Find &amp; Replace</div><div class="psbl">Edit party/item name across all chalans</div></div><button class="pbtn" onclick="closeOvl();openFindReplace()">Open</button></div>'+
+    '<div class="prow"><div><div class="plbl">Challan History</div><div class="psbl">Date &amp; time wise creation log</div></div><button class="pbtn" onclick="closeOvl();openHistory()">View</button></div>'+
+    '<div class="prow"><div><div class="plbl">Trash Bin</div><div class="psbl">Deleted chalans · auto-purge 5 days</div></div><button class="pbtn" onclick="closeOvl();openTrash()">Open</button></div>'+
+    '</div>'+
+    '<div class="psec">Keyboard Shortcuts</div>'+
+    '<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;margin-bottom:8px">'+scTbl+'</div>'+
+    '<div class="psec">Help</div>'+
+    '<div class="helpcrd"><div style="font-size:11px;color:var(--t3);margin-bottom:6px">For help, contact:</div>'+
+    '<div style="font-size:18px;font-weight:800">Ramji Prasad</div>'+
+    '<div style="font-size:22px;font-weight:900;color:#f59e0b;letter-spacing:1px">98013 24957</div>'+
+    '<button onclick="window.open(\'tel:9801324957\')" style="margin-top:10px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#0a0e1a;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer;width:100%">&#128222; Call Now</button></div>'+
+    '<div class="psec">About</div>'+
+    '<div class="abtcrd"><div style="font-size:15px;font-weight:800">Nilansh Creation</div>'+
+    '<div style="font-size:11px;color:var(--t3);margin-top:3px">Dispatch Manager v22 &middot; Made with <span style="color:#ef4444">&#x2764;</span> by Ramji</div></div>';
+  showOvl(h,'Profile');
+}
+function doToggleGST(){
+  if(GST_ON){
+    var hasGST=DB.some(function(c){return c.items.some(function(i){return(parseFloat(i.gstRate)||0)>0;});});
+    if(hasGST){toast('Cannot disable GST: some chalans have GST values. Clear them first.');return;}
+  }
+  openAdmConfirm(function(){GST_ON=!GST_ON;lsw('nc_gst',GST_ON?'1':'0');syncSettings();toast(GST_ON?'GST enabled':'GST disabled');openProfile();render();});
+}
+function doToggleTDS(){
+  if(TDS_ON){
+    var tMap=getAllTDS();
+    var hasTDS=Object.values(tMap).some(function(v){return(parseFloat(v)||0)>0;});
+    if(hasTDS){toast('Cannot disable TDS: some parties have TDS rates set. Clear them first.');return;}
+  }
+  openAdmConfirm(function(){TDS_ON=!TDS_ON;lsw('nc_tds',TDS_ON?'1':'0');syncSettings();toast(TDS_ON?'TDS enabled':'TDS disabled');openProfile();render();});
+}
+function openAdmConfirm(cb){
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm">'+
+    '<div class="cfmbox" style="max-width:340px">'+
+    '<div class="cfmtit">Admin Confirmation</div>'+
+    '<div class="cfmmsg">Enter admin password to continue</div>'+
+    '<div class="fg"><input class="fi" type="password" id="adm_pw" placeholder="Admin password" style="font-size:15px"/></div>'+
+    '<div id="adm_err" style="color:var(--rd);font-size:13px;min-height:16px;margin-bottom:8px"></div>'+
+    '<div class="cfmact">'+
+    '<button class="btn btns" onclick="document.getElementById(\'OVL\').innerHTML=\'\';openProfile()">Cancel</button>'+
+    '<button class="btn btnp" onclick="checkAdmPw()">Confirm</button>'+
+    '</div></div></div>';
+  window._admCb=cb;
+  setTimeout(function(){
+    var el=document.getElementById('adm_pw');
+    if(el){
+      el.focus();
+      el.onkeydown=function(e){
+        if(e.key==='Enter'){e.preventDefault();checkAdmPw();}
+        if(e.key==='Escape'){document.getElementById('OVL').innerHTML='';openProfile();}
+      };
+    }
+  },80);
+}
+function checkAdmPw(){
+  var pw=document.getElementById('adm_pw')?document.getElementById('adm_pw').value:'';
+  var err=document.getElementById('adm_err');
+  if(pw!==ADM){if(err)err.textContent='Wrong password';return;}
+  document.getElementById('OVL').innerHTML='';
+  if(window._admCb){window._admCb();window._admCb=null;}
+}
+function doToggleUnit(){
+  if(UNIT_ON){
+    // Check if any challan uses non-pcs unit
+    var usedUnits=new Set(DB.flatMap(function(c){return c.items.map(function(i){return(i.unit||'pcs').toLowerCase();})}));
+    usedUnits.delete('pcs');
+    if(usedUnits.size>0){toast('Cannot disable: units in use — '+[...usedUnits].join(', '));return;}
+  }
+  openAdmConfirm(function(){UNIT_ON=!UNIT_ON;lsw('nc_unit',UNIT_ON?'1':'0');syncSettings();toast(UNIT_ON?'Unit field enabled':'Unit field disabled');openProfile();render();});
+}
+function setPrint(k){if(k==='H'){PH=!PH;lsw('nc_ph',PH?'1':'0');}if(k==='L'){PL=!PL;lsw('nc_pl',PL?'1':'0');}if(k==='F'){PF=!PF;lsw('nc_pf',PF?'1':'0');}closeOvl();openProfile();}
+function rmUnit(u){
+  var used=DB.some(function(c){return c.items.some(function(i){return(i.unit||'pcs').toLowerCase()===u.toLowerCase();});});
+  if(used){toast('Cannot delete "'+u+'" — it is used in chalans. Remove it from all chalans first.');return;}
+  UNITS=UNITS.filter(function(x){return x!==u;});if(!UNITS.length)UNITS=['pcs'];saveUnits();closeOvl();openProfile();
+}
+function addUnit(){var v=(document.getElementById('nuin')?document.getElementById('nuin').value:'').trim().toLowerCase();if(!v)return;if(UNITS.includes(v)){toast('Already exists');return;}UNITS.push(v);saveUnits();toast('Added: '+v);closeOvl();openProfile();}
+function resetUnits(){UNITS=DUNT.slice();saveUnits();toast('Reset');closeOvl();openProfile();}
+
+// ═══════════════ CHANGE ADMIN PASSWORD ═══════════════
+function openChangeAdm(){
+  showOvl(
+    '<div class="fg"><label class="fl">Current Admin Password</label><input class="fi" type="password" id="ca1" placeholder="Current password"/></div>'+
+    '<div class="fg"><label class="fl">New Admin Password</label><input class="fi" type="password" id="ca2" placeholder="New password"/></div>'+
+    '<div class="fg"><label class="fl">Confirm New Password</label><input class="fi" type="password" id="ca3" placeholder="Repeat new password"/></div>'+
+    '<div id="caerr" style="color:var(--rd);font-size:13px;min-height:16px"></div>',
+    'Change Admin Password',
+    '<button class="btn btns" onclick="closeOvl();openProfile()">Cancel</button><button class="btn btnp" onclick="doChangeAdm()">Update Password</button>'
+  );
+}
+function doChangeAdm(){
+  var op=document.getElementById('ca1')?document.getElementById('ca1').value:'';
+  var np=document.getElementById('ca2')?document.getElementById('ca2').value:'';
+  var rp=document.getElementById('ca3')?document.getElementById('ca3').value:'';
+  var err=document.getElementById('caerr');
+  if(op!==ADM){if(err)err.textContent='Current password is wrong';return;}
+  if(!np||np.length<4){if(err)err.textContent='Password must be at least 4 characters';return;}
+  if(np!==rp){if(err)err.textContent='Passwords do not match';return;}
+  ADM=np;lsw('nc_adm',np);syncSettings();closeOvl();toast('Admin password updated on all devices &#x2713;');
+}
+
+// ═══════════════ CHANGE PIN ═══════════════
+function openChangePin(){
+  showOvl(
+    '<div class="fg"><label class="fl">Admin Password</label><input class="fi" type="password" id="cp1" placeholder="Admin password"/></div>'+
+    '<div class="fg"><label class="fl">New PIN (4 digits)</label><input class="fi" type="number" id="cp2" placeholder="e.g. 1234"/></div>'+
+    '<div class="fg"><label class="fl">Confirm PIN</label><input class="fi" type="number" id="cp3" placeholder="Repeat PIN"/></div>'+
+    '<div id="cperr" style="color:var(--rd);font-size:13px;min-height:16px"></div>',
+    'Change PIN',
+    '<button class="btn btns" onclick="closeOvl()">Cancel</button><button class="btn btnp" onclick="doChangePin()">Update PIN</button>'
+  );
+}
+function doChangePin(){
+  var ap=document.getElementById('cp1')?document.getElementById('cp1').value:'';
+  var np=document.getElementById('cp2')?document.getElementById('cp2').value:'';
+  var rp=document.getElementById('cp3')?document.getElementById('cp3').value:'';
+  var err=document.getElementById('cperr');
+  if(ap!==ADM){if(err)err.textContent='Wrong admin password';return;}
+  if(!/^\d{4}$/.test(np)){if(err)err.textContent='PIN must be 4 digits';return;}
+  if(np!==rp){if(err)err.textContent='PINs do not match';return;}
+  lsw(PK,np);syncPin(np);closeOvl();toast('PIN updated — all devices will re-lock &#x2713;');
+}
+
+// ═══════════════ PRINT ═══════════════
+function doPrint(html){
+  var w=window.open('','_blank','width=900,height=700');
+  if(!w){toast('Allow popups for printing');return;}
+  w.document.open();
+  w.document.write('<!DOCTYPE html><!-- v3.1 --><html><head><meta charset="UTF-8"/><title>Nilansh Creation</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;padding:20px;color:#000}@media print{body{padding:10px}}</style></head><body>'+html+'</body></html>');
+  w.document.close();w.focus();setTimeout(function(){w.print();},500);
+}
+function chalanPrintHTML(c){
+  var t=cTotal(c),tdsR=getTDS(c.party);
+  var ec=GST_ON?3:0,tc=9+ec;
+  var ths=['#','Item','Design','Supplier','Sup.Ch','Qty','Rate','Amount'];
+  if(GST_ON)ths=ths.concat(['GST%','GST','Total']);ths.push('Status');
+  var rows=c.items.map(function(item,n){
+    var a=(parseFloat(item.qty)||0)*(parseFloat(item.rate)||0);
+    var g=GST_ON?(parseFloat(item.gstRate)||0)*a/100:0;
+    var td='<td style="padding:5px;border:1px solid #ccc;font-size:11px">';
+    return '<tr>'+td+(n+1)+'</td>'+td+esc(item.item)+'</td>'+td+(item.designNo||'-')+'</td>'+
+      td+(item.supplierNo||'-')+'</td>'+td+(item.supplierChalanNo||'-')+'</td>'+
+      td+(item.qty||'-')+' '+(item.unit||'')+'</td>'+
+      '<td style="padding:5px;border:1px solid #ccc;font-size:11px;text-align:right">&#x20B9;'+(item.rate||0)+'</td>'+
+      '<td style="padding:5px;border:1px solid #ccc;font-size:11px;text-align:right">'+(a?'&#x20B9;'+a.toLocaleString('en-IN'):'-')+'</td>'+
+      (GST_ON?td+(item.gstRate||0)+'%</td>'+
+        '<td style="padding:5px;border:1px solid #ccc;font-size:11px;text-align:right;color:#3b82f6">'+(g?'&#x20B9;'+g.toLocaleString('en-IN'):'-')+'</td>'+
+        '<td style="padding:5px;border:1px solid #ccc;font-size:11px;text-align:right;font-weight:700">'+(a+g?'&#x20B9;'+(a+g).toLocaleString('en-IN'):'-')+'</td>':'')+
+      td+(item.received?'&#x2713; Recv':'Pending')+'</td></tr>';
+  }).join('');
+  var th='<th style="padding:6px 5px;text-align:left;border:1px solid #ccc;font-size:11px;background:#f0f0f0">';
+  return '<div style="margin-bottom:28px;page-break-after:always">'+
+    (PH?'<div style="border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">'+
+      (PL?'<div style="width:38px;height:38px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:900;color:#0a0e1a;font-family:Georgia,serif">N</div>':'<div></div>')+
+      '<div style="flex:1;margin-left:9px"><div style="font-size:19px;font-weight:900">NILANSH CREATION</div><div style="font-size:11px;color:#555">Dispatch Chalan</div></div>'+
+      '<div style="text-align:right;font-size:12px"><b>Chalan #:</b> '+esc(c.chalanNo)+'<br/><b>Date:</b> '+toDisplay(c.date)+'</div></div>':'')+
+    '<div style="font-size:13px;margin-bottom:9px"><b>Party:</b> '+esc(c.party)+(c.notes?' | '+esc(c.notes):'')+'</div>'+
+    '<table style="width:100%;border-collapse:collapse"><thead><tr>'+ths.map(function(h){return th+h+'</th>';}).join('')+'</tr></thead><tbody>'+rows+'</tbody>'+
+    '<tfoot>'+
+    (t.sub?'<tr><td colspan="'+(tc-1)+'" style="text-align:right;font-weight:700;padding:6px;border:1px solid #ccc">Subtotal:</td><td style="font-weight:700;padding:6px;border:1px solid #ccc;text-align:right">&#x20B9;'+t.sub.toLocaleString('en-IN')+'</td></tr>':'')+
+    (GST_ON&&t.gst?'<tr><td colspan="'+(tc-1)+'" style="text-align:right;font-weight:700;padding:6px;border:1px solid #ccc;color:#3b82f6">GST Total:</td><td style="font-weight:700;padding:6px;border:1px solid #ccc;text-align:right;color:#3b82f6">&#x20B9;'+t.gst.toLocaleString('en-IN')+'</td></tr>':'')+
+    (TDS_ON&&t.tds?'<tr><td colspan="'+(tc-1)+'" style="text-align:right;font-weight:700;padding:6px;border:1px solid #ccc;color:#f97316">TDS ('+tdsR+'%):</td><td style="font-weight:700;padding:6px;border:1px solid #ccc;text-align:right;color:#f97316">-&#x20B9;'+t.tds.toLocaleString('en-IN')+'</td></tr>':'')+
+    '<tr style="background:#fffbeb"><td colspan="'+(tc-1)+'" style="text-align:right;font-weight:900;padding:6px;border:1px solid #ccc;font-size:13px">'+(TDS_ON&&t.tds?'NET PAYABLE':'TOTAL')+':</td><td style="font-weight:900;padding:6px;border:1px solid #ccc;text-align:right;color:#d97706;font-size:13px">&#x20B9;'+t.net.toLocaleString('en-IN')+'</td></tr>'+
+    '</tfoot></table>'+
+    (PF?'<div style="margin-top:9px;font-size:10px;color:#888;border-top:1px solid #ccc;padding-top:6px">Nilansh Creation &middot; Printed '+new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})+'</div>':'')+
+    '</div>';
+}
+function printChalan(id){var c=DB.find(function(x){return x.id===id;});if(!c)return;doPrint(chalanPrintHTML(c));}
+function openPrintOptions(id){
+  var cc=DB.find(function(x){return x.id===id;});
+  if(!cc)return;
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm"><div class="cfmbox" style="max-width:340px">'+
+    '<div class="cfmtit" style="margin-bottom:4px">Print Options</div>'+
+    '<div style="font-size:12px;color:var(--t3);margin-bottom:14px">'+esc(cc.party)+' · Ch# '+esc(cc.chalanNo)+'</div>'+
+    '<div style="display:flex;flex-direction:column;gap:8px">'+
+    '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';printChalan(\''+esc(id)+'\');" style="padding:12px;background:var(--s2);border:1px solid var(--bd);border-radius:10px;cursor:pointer;color:var(--t1);font-family:inherit;font-size:14px;font-weight:600;text-align:left;display:flex;align-items:center;gap:10px">'+
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>'+
+    '<div><div>Print This Challan</div><div style="font-size:11px;color:var(--t3);font-weight:400">Full detail with all items</div></div></button>'+
+    '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';printParty(\''+esc(cc.party)+'\');" style="padding:12px;background:var(--s2);border:1px solid var(--bd);border-radius:10px;cursor:pointer;color:var(--t1);font-family:inherit;font-size:14px;font-weight:600;text-align:left;display:flex;align-items:center;gap:10px">'+
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>'+
+    '<div><div>Print All Party Chalans</div><div style="font-size:11px;color:var(--t3);font-weight:400">All chalans for '+esc(cc.party)+' (date filter available)</div></div></button>'+
+    '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';exportAllPDF();" style="padding:12px;background:var(--s2);border:1px solid var(--bd);border-radius:10px;cursor:pointer;color:var(--t1);font-family:inherit;font-size:14px;font-weight:600;text-align:left;display:flex;align-items:center;gap:10px">'+
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>'+
+    '<div><div>Print All Chalans (PDF)</div><div style="font-size:11px;color:var(--t3);font-weight:400">Complete record of all '+DB.length+' chalans</div></div></button>'+
+    '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';sharePartyWA(\''+esc(id)+'\');" style="padding:12px;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.25);border-radius:10px;cursor:pointer;color:#25d366;font-family:inherit;font-size:14px;font-weight:600;text-align:left;display:flex;align-items:center;gap:10px">'+
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>'+
+    '<div><div>Share on WhatsApp</div><div style="font-size:11px;font-weight:400">Send challan details via WhatsApp</div></div></button>'+
+    '</div>'+
+    '<div class="cfmact" style="margin-top:14px">'+
+    '<button class="btn btns" style="width:100%" onclick="document.getElementById(\'OVL\').innerHTML=\'\';openDetail(\''+esc(id)+'\');">Cancel</button>'+
+    '</div></div></div>';
+}
+function exportAllPDF(){if(!DB.length){toast('No chalans');return;}doPrint(DB.map(chalanPrintHTML).join(''));}
+
+// ═══════════════ EXPORT / IMPORT ═══════════════
+function exportExcel(){
+  if(!DB.length){toast('No data');return;}
+  var rows=[['Party','Chalan No','Date','Item','Design No','Supplier','Sup.Chalan','Qty','Unit','Rate','Amount','GST%','GST Amt','Status','Recv Date','Notes','Chalan Notes']];
+  DB.forEach(function(c){c.items.forEach(function(item){
+    var amt=(parseFloat(item.qty)||0)*(parseFloat(item.rate)||0);
+    var g=(parseFloat(item.gstRate)||0)*amt/100;
+    rows.push([c.party,c.chalanNo,toDisplay(c.date),item.item,item.designNo||'',item.supplierNo||'',item.supplierChalanNo||'',item.qty||'',item.unit||'pcs',item.rate||'',amt||'',item.gstRate||0,g||'',item.received?'Received':'Pending',toDisplay(item.receivedDate),item.notes||'',c.notes||'']);
+  });});
+  var csv=rows.map(function(r){return r.map(function(cell){var s=String(cell==null?'':cell);return(s.includes(',')||s.includes('"')||s.includes('\n'))?'"'+s.replace(/"/g,'""')+'"':s;}).join(',');}).join('\r\n');
+  var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download='NilanshCreation_'+toDisplay(today())+'.csv';a.click();
+  URL.revokeObjectURL(url);toast('Downloaded &#x2713;');
+}
+function importExcel(inp){
+  var file=inp.files[0];if(!file)return;
+  var rd=new FileReader();
+  rd.onload=function(e){
+    try{
+      var txt=e.target.result.replace(/^\uFEFF/,'');
+      var lines=txt.split(/\r?\n/).filter(function(l){return l.trim();});
+      if(lines.length<2){toast('Empty file');return;}
+      function parseL(line){var r=[],cur='',inq=false;for(var i=0;i<line.length;i++){var ch=line[i];if(ch==='"'){if(inq&&line[i+1]==='"'){cur+='"';i++;}else inq=!inq;}else if(ch===','&&!inq){r.push(cur);cur='';}else cur+=ch;}r.push(cur);return r;}
+      var hdrs=parseL(lines[0]).map(function(h){return h.trim().toLowerCase();});
+      function hi(n){return hdrs.indexOf(n);}
+      var map={};
+      for(var i=1;i<lines.length;i++){
+        var cols=parseL(lines[i]);
+        var party=(cols[hi('party')]||'').trim(),cn=(cols[hi('chalan no')]||'').trim();
+        if(!party||!cn)continue;
+        var key=party+'||'+cn;
+        if(!map[key])map[key]={id:uid(),party:party,chalanNo:cn,date:toISO((cols[hi('date')]||'').trim()),notes:(cols[hi('chalan notes')]||'').trim(),items:[],updatedAt:new Date().toISOString()};
+        var itm=(cols[hi('item')]||'').trim();
+        if(itm)map[key].items.push({id:uid(),item:itm,designNo:(cols[hi('design no')]||'').trim(),supplierNo:(cols[hi('supplier')]||'').trim(),supplierChalanNo:(cols[hi('sup.chalan')]||'').trim(),qty:(cols[hi('qty')]||'').trim(),unit:(cols[hi('unit')]||'pcs').trim(),rate:(cols[hi('rate')]||'').trim(),gstRate:parseFloat(cols[hi('gst%')])||0,notes:(cols[hi('notes')]||'').trim(),received:(cols[hi('status')]||'').toLowerCase()==='received',receivedDate:toISO((cols[hi('recv date')]||'').trim())});
+      }
+      var imp=Object.values(map).filter(function(c){return c.items.length;});
+      if(!imp.length){toast('No valid data');return;}
+      var added=0,updated=0;
+      imp.forEach(function(nc){
+        var key=nc.party+'||'+nc.chalanNo;
+        var idx=DB.findIndex(function(c){return(c.party+'||'+c.chalanNo)===key;});
+        if(idx===-1){DB=[nc].concat(DB);added++;}
+        else{DB[idx]=Object.assign({},DB[idx],nc,{id:DB[idx].id,updatedAt:new Date().toISOString()});updated++;}
+      });
+      persist();
+      toast('Imported: '+added+' new, '+updated+' updated');
+    }catch(err){toast('Error reading file');}
+  };
+  rd.readAsText(file,'utf-8');inp.value='';
+}
+
+// ═══════════════ GLOBAL KEYBOARD SHORTCUTS ═══════════════
+function globalKeys(e){
+  var ovlEl=document.getElementById('OVL');
+  var hasOvl=ovlEl&&ovlEl.innerHTML.trim()!=='';
+  var tag=(document.activeElement?document.activeElement.tagName:'').toLowerCase();
+  var inInp=(tag==='input'||tag==='textarea'||tag==='select');
+  var isDetail=hasOvl&&!!document.querySelector('.shfoot .btno'); // detail has print btn
+  var isForm=hasOvl&&!!document.getElementById('fp'); // form has party field
+
+  // ── INSIDE OVERLAY ──────────────────────────────────────────────────────────
+  if(hasOvl){
+    if(!inInp){
+      if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();var sb=document.querySelector('.shbody');if(sb)sb.scrollBy(0,e.key==='PageDown'?300:80);return;}
+      if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();var sb=document.querySelector('.shbody');if(sb)sb.scrollBy(0,e.key==='PageUp'?-300:-80);return;}
+    }
+    // ESC: everywhere = back/close (no special behaviour for detail)
+    if(e.key==='Escape'){
+      e.preventDefault();
+      var backBtn=document.querySelector('.sh .shhdr button[title="Back (Esc)"]');
+      if(backBtn){backBtn.click();}else{closeOvl();}
+      return;
+    }
+    // Detail view shortcuts
+    if(isDetail&&!inInp){
+      // Enter in detail = close detail (1st press); double Enter within 1s = new challan
+      if(e.key==='Enter'){
+        e.preventDefault();
+        var now=Date.now();
+        if(now-lastDetailEnter<1000){lastDetailEnter=0;closeOvl();setTimeout(function(){openForm(null);},50);}
+        else{lastDetailEnter=now;closeOvl();}
+        return;
+      }
+      // E = Edit
+      if(e.key==='e'||e.key==='E'){
+        e.preventDefault();
+        var cid=selCard;closeOvl();if(cid)setTimeout(function(){openForm(cid);},50);
+        return;
+      }
+      // Alt+D = Print
+      if(e.altKey&&(e.key==='d'||e.key==='D')){e.preventDefault();var pb=document.querySelector('.shfoot .btno');if(pb)pb.click();return;}
+      if(e.altKey&&(e.key==='s'||e.key==='S')){e.preventDefault();var sb=document.querySelector('.shfoot .btn[title*="WhatsApp"]');if(sb)sb.click();else if(selCard)sharePartyWA(selCard);return;}
+      // Shift+- = Delete
+      if(e.shiftKey&&e.key==='-'){e.preventDefault();var db=document.querySelector('.shfoot .btnd');if(db)db.click();return;}
+    }
+    // Form shortcuts
+    if(isForm){
+      if(inInp&&e.key==='Enter'&&e.shiftKey){e.preventDefault();saveForm(true);return;}
+      // Alt+A = Add item (works whether in input or not)
+      if(e.altKey&&(e.key==='a'||e.key==='A')){e.preventDefault();addFItem();return;}
+      if(inInp&&e.altKey&&(e.key==='r'||e.key==='R')){
+        e.preventDefault();
+        var ic=document.activeElement.closest?document.activeElement.closest('.icard'):null;
+        if(ic){
+          var iid=ic.id.replace('ic_','');
+          var item=FItems.find(function(i){return i.id===iid;});
+          if(item){
+            var fpp=document.getElementById('fp');
+            var ii=document.getElementById('ii_'+iid);
+            var di=document.getElementById('di_'+iid);
+            var rate=getPrevRate(fpp?fpp.value:'',ii?ii.value:item.item,di?di.value:item.designNo||'');
+            var ri=document.getElementById('ri_'+iid);
+            if(ri){ri.value=rate;updFI(iid,'rate',String(rate));}
+            toast(rate>0?'Rate: &#x20B9;'+rate:'No previous rate found');
+          }
+        }
+        return;
+      }
+    }
+    // Shift+- in detail (not in input) - already handled above
+    // Alt+D anywhere in overlay
+    if(!isDetail&&e.altKey&&(e.key==='d'||e.key==='D')){e.preventDefault();var pb2=document.querySelector('.shfoot .btno');if(pb2)pb2.click();return;}
+    return;
+  }
+
+  // ── MAIN SCREEN ─────────────────────────────────────────────────────────────
+  // ESC on main screen
+  if(e.key==='Escape'){
+    if(fromSummary){backToSummary();return;}
+    selCard=null;selSummaryIdx=-1;render();return;
+  }
+  if(inInp)return;
+  // New challan
+  if(e.key==='+'||e.key==='='){e.preventDefault();openForm(null);return;}
+  // Tabs
+  if(e.key==='1'){e.preventDefault();setTab('c',0);return;}
+  if(e.key==='2'){e.preventDefault();selSummaryIdx=-1;setTab('s',1);return;}
+  if(e.key==='ArrowRight'){e.preventDefault();var nb=document.querySelector('#NAV .nb:not(.on)');if(nb)nb.click();return;}
+  if(e.key==='ArrowLeft'){e.preventDefault();setTab('c',0);return;}
+  if(e.key==='p'||e.key==='P'){e.preventDefault();openProfile();return;}
+  if(e.key==='t'||e.key==='T'){e.preventDefault();toggleTheme();return;}
+  if(e.key==='/'||(e.ctrlKey&&e.key==='f')){e.preventDefault();var sr=document.getElementById('SRCH');if(sr){sr.focus();try{sr.select();}catch(ex){}}return;}
+  if(e.ctrlKey&&e.code==='Space'){e.preventDefault();if(MSEL&&selSet.size>0){openMSelMenu();}else if(selCard){enterMSel(selCard);}else{enterMSel(null);}return;}
+  if(e.key==='Escape'&&MSEL){exitMSel();return;}
+  // Chalans tab navigation
+  if(CUR==='c'){
+    if(e.key==='ArrowDown'&&!e.shiftKey){e.preventDefault();navCard(1);return;}
+    if(e.key==='ArrowUp'&&!e.shiftKey){e.preventDefault();navCard(-1);return;}
+    if(e.key==='Enter'){e.preventDefault();if(selCard)openDetail(selCard);return;}
+    if(e.key==='e'||e.key==='E'){if(selCard){e.preventDefault();openForm(selCard);return;}}
+    if(e.key==='Delete'||e.key==='Backspace'){if(selCard){e.preventDefault();confirmDel(selCard);return;}}
+  }
+  // Summary tab navigation
+  if(CUR==='s'){
+    if(e.key==='ArrowDown'&&!e.shiftKey){e.preventDefault();navSummary(1);return;}
+    if(e.key==='ArrowUp'&&!e.shiftKey){e.preventDefault();navSummary(-1);return;}
+    if(e.key==='Enter'){
+      e.preventDefault();
+      var pcards=document.querySelectorAll('#CNT .pc[data-party]');
+      if(selSummaryIdx>=0&&pcards[selSummaryIdx]){goParty(pcards[selSummaryIdx].dataset.party);}
+      return;
+    }
+  }
+  // Scroll
+  if(e.key==='ArrowDown'&&e.shiftKey){e.preventDefault();document.getElementById('CNT').scrollBy(0,80);return;}
+  if(e.key==='ArrowUp'&&e.shiftKey){e.preventDefault();document.getElementById('CNT').scrollBy(0,-80);return;}
+  // Shift+- = Delete selected card (works on both Chalans and Summary tabs)
+  if(e.shiftKey&&e.key==='-'){if(selCard){e.preventDefault();confirmDel(selCard);return;}}
+  if(e.key==='PageDown'){e.preventDefault();document.getElementById('CNT').scrollBy(0,300);return;}
+  if(e.key==='PageUp'){e.preventDefault();document.getElementById('CNT').scrollBy(0,-300);return;}
+}
+
+// ═══════════════ PRINT PARTY ═══════════════
+function printParty(party){
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm"><div class="cfmbox" style="max-width:360px">'+
+    '<div class="cfmtit" style="margin-bottom:12px">Print: '+esc(party)+'</div>'+
+    '<div style="font-size:12px;color:var(--t3);margin-bottom:10px">Optional: filter by date range</div>'+
+    '<div style="display:flex;gap:8px;margin-bottom:10px">'+
+    '<div style="flex:1"><label style="font-size:10px;color:var(--t3);display:block;margin-bottom:4px">FROM</label>'+
+    '<input type="date" id="pp_f" class="fi dr-date" style="padding:8px;font-size:13px" onkeydown="return false"/></div>'+
+    '<div style="flex:1"><label style="font-size:10px;color:var(--t3);display:block;margin-bottom:4px">TO</label>'+
+    '<input type="date" id="pp_t" class="fi dr-date" style="padding:8px;font-size:13px" onkeydown="return false"/></div>'+
+    '</div>'+
+    '<div style="font-size:11px;color:var(--t3);margin-bottom:14px">Leave blank to print all chalans</div>'+
+    '<div class="cfmact">'+
+    '<button class="btn btns" onclick="document.getElementById(\'OVL\').innerHTML=\'\'" >Cancel</button>'+
+    '<button class="btn btnp" onclick="doPrintParty(\''+esc(party)+'\')" >&#x1F5A8; Print</button>'+
+    '</div></div></div>';
+}
+function buildPartyStatement(party,chalans,f,t){
+  // Build detailed statement HTML for a party
+  var tdsR=getTDS(party);
+  var ths=['#','Date','Chalan#','Item','Design','Supplier','Sup.Ch','Qty','Rate','Amount'];
+  if(GST_ON)ths=ths.concat(['GST%','GST Amt','Total']);
+  var rowNum=0;
+  var allRows=chalans.map(function(ch){
+    return ch.items.map(function(item){
+      rowNum++;
+      var amt=(parseFloat(item.qty)||0)*(parseFloat(item.rate)||0);
+      var g=GST_ON?(parseFloat(item.gstRate)||0)*amt/100:0;
+      var td='<td style="padding:5px 4px;border:1px solid #ddd;font-size:10px">';
+      var tdr='<td style="padding:5px 4px;border:1px solid #ddd;font-size:10px;text-align:right">';
+      return '<tr style="background:'+(item.received?'#f0fdf4':'#fff')+'">'
+        +td+rowNum+'</td>'+td+toDisplay(ch.date)+'</td>'+td+esc(ch.chalanNo)+'</td>'
+        +td+esc(item.item)+'</td>'+td+(item.designNo||'-')+'</td>'
+        +td+(item.supplierNo||'-')+'</td>'+td+(item.supplierChalanNo||'-')+'</td>'
+        +tdr+(item.qty||'-')+(item.unit?' '+item.unit:'')+'</td>'
+        +tdr+'&#x20B9;'+(item.rate||0)+'</td>'
+        +tdr+(amt?'&#x20B9;'+amt.toLocaleString('en-IN'):'-')+'</td>'
+        +(GST_ON?td+(item.gstRate||0)+'%</td>'
+          +tdr+(g?'&#x20B9;'+g.toLocaleString('en-IN'):'-')+'</td>'
+          +'<td style="padding:5px 4px;border:1px solid #ddd;font-size:10px;text-align:right;font-weight:700">'+(amt+g?'&#x20B9;'+(amt+g).toLocaleString('en-IN'):'-')+'</td>':'')
+        +td+(item.received?'<span style="color:#16a34a;font-weight:700">✓ Recv</span>':'Pending')+'</td>'
+        +'</tr>';
+    }).join('');
+  }).join('');
+  var nc=ths.length;
+  var subtotal=chalans.reduce(function(s,ch){return s+ch.items.reduce(function(s2,i){return s2+(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);},0);},0);
+  var gstTotal=GST_ON?chalans.reduce(function(s,ch){return s+ch.items.reduce(function(s2,i){var a=(parseFloat(i.qty)||0)*(parseFloat(i.rate)||0);return s2+(parseFloat(i.gstRate)||0)*a/100;},0);},0):0;
+  var tdsAmt=TDS_ON&&tdsR>0?(subtotal+gstTotal)*tdsR/100:0;
+  var netTotal=subtotal+gstTotal-tdsAmt;
+  var recItems=chalans.reduce(function(s,ch){return s+ch.items.filter(function(i){return i.received;}).length;},0);
+  var totItems=chalans.reduce(function(s,ch){return s+ch.items.length;},0);
+  var th='<th style="padding:6px 4px;text-align:left;border:1px solid #ccc;font-size:10px;background:#f5f5f5">';
+  var thr='<th style="padding:6px 4px;text-align:right;border:1px solid #ccc;font-size:10px;background:#f5f5f5">';
+  return '<div style="margin-bottom:20px;page-break-after:always">'+
+    '<div style="border-bottom:2px solid #d97706;padding-bottom:10px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">'+
+    '<div>'+(PL?'<div style="width:36px;height:36px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:9px;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#0a0e1a;font-family:Georgia,serif;margin-right:8px;vertical-align:middle">N</div>':'')+
+    '<span style="font-size:19px;font-weight:900;vertical-align:middle">NILANSH CREATION</span><br/>'+
+    '<span style="font-size:11px;color:#666">Dispatch Statement</span></div>'+
+    '<div style="text-align:right;font-size:12px">'+
+    '<div><b>Party:</b> '+esc(party)+'</div>'+
+    '<div><b>Period:</b> '+(f&&t?toDisplay(f)+' – '+toDisplay(t):f?'From '+toDisplay(f):t?'Up to '+toDisplay(t):'All dates')+'</div>'+
+    '<div><b>Printed:</b> '+new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})+'</div></div></div>'+
+    '<div style="display:flex;gap:16px;margin-bottom:14px;padding:10px;background:#fffbeb;border-radius:8px;border:1px solid #fde68a">'+
+    '<div><div style="font-size:18px;font-weight:900">'+chalans.length+'</div><div style="font-size:10px;color:#888">Chalans</div></div>'+
+    '<div><div style="font-size:18px;font-weight:900">'+totItems+'</div><div style="font-size:10px;color:#888">Total Items</div></div>'+
+    '<div><div style="font-size:18px;font-weight:900;color:#16a34a">'+recItems+'</div><div style="font-size:10px;color:#888">Received</div></div>'+
+    '<div><div style="font-size:18px;font-weight:900;color:#dc2626">'+(totItems-recItems)+'</div><div style="font-size:10px;color:#888">Pending</div></div>'+
+    (netTotal>0?'<div style="margin-left:auto"><div style="font-size:18px;font-weight:900;color:#d97706">&#x20B9;'+netTotal.toLocaleString('en-IN')+'</div><div style="font-size:10px;color:#888">Net Total</div></div>':'')+
+    '</div>'+
+    '<table style="width:100%;border-collapse:collapse;margin-bottom:12px">'+
+    '<thead><tr>'+ths.map(function(h,i){return(i>=7&&i<=9+(GST_ON?3:0)?thr:th)+h+'</th>';}).join('')+'</tr></thead>'+
+    '<tbody>'+allRows+'</tbody>'+
+    '<tfoot>'+
+    '<tr><td colspan="'+(nc-1)+'" style="text-align:right;font-weight:700;padding:5px 4px;border:1px solid #ddd;font-size:10px">Subtotal</td><td style="text-align:right;font-weight:700;padding:5px 4px;border:1px solid #ddd;font-size:10px">&#x20B9;'+subtotal.toLocaleString('en-IN')+'</td></tr>'+
+    (GST_ON&&gstTotal?'<tr><td colspan="'+(nc-1)+'" style="text-align:right;font-weight:700;padding:5px 4px;border:1px solid #ddd;font-size:10px;color:#3b82f6">GST Total</td><td style="text-align:right;font-weight:700;padding:5px 4px;border:1px solid #ddd;font-size:10px;color:#3b82f6">&#x20B9;'+gstTotal.toLocaleString('en-IN')+'</td></tr>':'')+
+    (TDS_ON&&tdsAmt?'<tr><td colspan="'+(nc-1)+'" style="text-align:right;font-weight:700;padding:5px 4px;border:1px solid #ddd;font-size:10px;color:#f97316">TDS ('+tdsR+'%)</td><td style="text-align:right;font-weight:700;padding:5px 4px;border:1px solid #ddd;font-size:10px;color:#f97316">-&#x20B9;'+tdsAmt.toLocaleString('en-IN')+'</td></tr>':'')+
+    '<tr style="background:#fffbeb"><td colspan="'+(nc-1)+'" style="text-align:right;font-weight:900;padding:6px 4px;border:1px solid #ccc;font-size:12px">NET TOTAL</td><td style="text-align:right;font-weight:900;padding:6px 4px;border:1px solid #ccc;font-size:12px;color:#d97706">&#x20B9;'+netTotal.toLocaleString('en-IN')+'</td></tr>'+
+    '</tfoot></table>'+
+    (PF?'<div style="font-size:10px;color:#888;border-top:1px solid #ddd;padding-top:6px">Nilansh Creation · Printed '+new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})+'</div>':'')+
+    '</div>';
+}
+function doPrintParty(party){
+  var f=document.getElementById('pp_f')?document.getElementById('pp_f').value:'';
+  var t=document.getElementById('pp_t')?document.getElementById('pp_t').value:'';
+  document.getElementById('OVL').innerHTML='';
+  var chalans=DB.filter(function(ch){
+    if(ch.party!==party)return false;
+    if(f&&ch.date<f)return false;
+    if(t&&ch.date>t)return false;
+    return true;
+  }).sort(function(a,b){return(a.date||'')>(b.date||'')?1:-1;});
+  if(!chalans.length){toast('No chalans found for selected period');return;}
+  doPrint(buildPartyStatement(party,chalans,f,t));
+}
+
+// ═══════════════ WHATSAPP SHARE ═══════════════
+function sharePartyWA(id){
+  var cc=DB.find(function(x){return x.id===id;});
+  if(!cc)return;
+  // Show share options: PDF print or WhatsApp text
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm"><div class="cfmbox" style="max-width:320px">'+
+    '<div class="cfmtit" style="margin-bottom:4px">Share Challan</div>'+
+    '<div style="font-size:12px;color:var(--t3);margin-bottom:14px">'+esc(cc.party)+' · Ch# '+esc(cc.chalanNo)+'</div>'+
+    '<div style="display:flex;flex-direction:column;gap:8px">'+
+    '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';doSharePDF(\''+esc(id)+'\')" style="padding:12px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:10px;cursor:pointer;color:#25d366;font-family:inherit;font-size:14px;font-weight:600;text-align:left;display:flex;align-items:center;gap:10px">'+
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>'+
+    '<div><div>Share via WhatsApp</div><div style="font-size:11px;font-weight:400">PDF print → save → send on WhatsApp</div></div></button>'+
+    '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';doShareWAText(\''+esc(id)+'\')" style="padding:12px;background:var(--s2);border:1px solid var(--bd);border-radius:10px;cursor:pointer;color:var(--t1);font-family:inherit;font-size:14px;font-weight:600;text-align:left;display:flex;align-items:center;gap:10px">'+
+    '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'+
+    '<div><div>Send as Text Message</div><div style="font-size:11px;color:var(--t3);font-weight:400">Quick text summary on WhatsApp</div></div></button>'+
+    '</div>'+
+    '<button class="btn btns" style="width:100%;margin-top:10px" onclick="document.getElementById(\'OVL\').innerHTML=\'\';openDetail(\''+esc(id)+'\');">Cancel</button>'+
+    '</div></div>';
+}
+function doSharePDF(id){
+  var cc=DB.find(function(x){return x.id===id;});
+  if(!cc)return;
+  // Print PDF and show WhatsApp instruction
+  var w=window.open('','_blank','width=900,height=700');
+  if(!w){toast('Allow popups');return;}
+  var html=chalanPrintHTML(cc);
+  w.document.open();
+  w.document.write('<!DOCTYPE html><!-- v3.1 --><html><head><meta charset="UTF-8"/><title>'+cc.party+' - Ch#'+cc.chalanNo+'</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;padding:20px;color:#000}@media print{body{padding:5px}.no-print{display:none}}</style></head><body>'+
+    '<div class="no-print" style="background:#25d366;color:#fff;padding:10px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;font-weight:600">'+
+    '📲 Save as PDF → Open WhatsApp → Attach file → Send</div>'+html+'</body></html>');
+  w.document.close();w.focus();setTimeout(function(){w.print();},500);
+  toast('Print/Save as PDF, then share on WhatsApp');
+}
+function doShareWAText(id){
+  var cc=DB.find(function(x){return x.id===id;});
+  if(!cc)return;
+  var t=cTotal(cc);
+  var lines=['*NILANSH CREATION*','Dispatch Challan','','*Party:* '+cc.party,'*Challan #:* '+cc.chalanNo,'*Date:* '+toDisplay(cc.date),''];
+  cc.items.forEach(function(item,i){
+    lines.push((i+1)+'. *'+item.item+'*'+(item.designNo?' ['+item.designNo+']':''));
+    var det='   Qty: '+item.qty+(item.unit?' '+item.unit:'');
+    if(item.rate)det+=' | Rate: ₹'+item.rate;
+    if(GST_ON&&item.gstRate)det+=' | GST: '+item.gstRate+'%';
+    lines.push(det);
+    lines.push('   '+(item.received?'✅ Received':'⏳ Pending'));
+  });
+  if(t.sub>0){lines.push('');lines.push('Subtotal: ₹'+t.sub.toLocaleString('en-IN'));}
+  if(GST_ON&&t.gst>0)lines.push('GST: ₹'+t.gst.toLocaleString('en-IN'));
+  if(t.net>0)lines.push('*Total: ₹'+t.net.toLocaleString('en-IN')+'*');
+  window.open('https://wa.me/?text='+encodeURIComponent(lines.join('\n')),'_blank');
+}
+
+// ═══════════════ TRASH BIN ═══════════════
+var TRASH_KEY='nc_trash';
+function loadTrash(){try{var r=ls(TRASH_KEY);return r?JSON.parse(r):[];}catch(e){return[];}}
+function saveTrash(t){lsw(TRASH_KEY,JSON.stringify(t));}
+function getTrash(){
+  var t=loadTrash();
+  var now=Date.now();
+  var kept=t.filter(function(x){return now-new Date(x.deletedAt||0).getTime()<5*24*3600*1000;});
+  if(kept.length!==t.length)saveTrash(kept);
+  return kept;
+}
+function moveToTrash(id){
+  var cc=DB.find(function(x){return x.id===id;});
+  if(!cc)return;
+  var trash=getTrash();
+  trash.unshift(Object.assign({},cc,{deletedAt:new Date().toISOString()}));
+  saveTrash(trash);
+  DB=DB.filter(function(x){return x.id!==id;});
+  persist();
+  document.getElementById('OVL').innerHTML='';
+  selCard=null;
+  toast('Moved to Trash');
+}
+function restoreFromTrash(id){
+  var trash=getTrash();
+  var item=trash.find(function(x){return x.id===id;});
+  if(!item)return;
+  var restored=Object.assign({},item);
+  delete restored.deletedAt;
+  restored.updatedAt=new Date().toISOString();
+  DB.unshift(restored);
+  saveTrash(trash.filter(function(x){return x.id!==id;}));
+  persist();
+  toast('Restored &#x2713;');
+  openTrash();
+}
+function permDelete(id){
+  saveTrash(getTrash().filter(function(x){return x.id!==id;}));
+  toast('Permanently deleted');
+  openTrash();
+}
+function openTrash(){
+  var trash=getTrash();
+  var now=Date.now();
+  var html=trash.length?trash.map(function(x){
+    var ms=5*24*3600*1000-(now-new Date(x.deletedAt||0).getTime());
+    var days=Math.max(1,Math.ceil(ms/(24*3600*1000)));
+    var col=days<=1?'var(--rd)':days<=2?'var(--or)':'var(--t3)';
+    var delDate=new Date(x.deletedAt||0).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+    return '<div style="background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:8px">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">'+
+      '<div><div style="font-size:15px;font-weight:800">'+esc(x.party)+'</div>'+
+      '<div style="font-size:11px;color:var(--t3)">Ch# '+esc(x.chalanNo)+' · Deleted '+esc(delDate)+' · '+x.items.length+' item'+(x.items.length!==1?'s':'')+'</div></div>'+
+      '<span style="font-size:10px;font-weight:700;color:'+col+';background:var(--s3);padding:2px 7px;border-radius:10px">'+days+'d left</span>'+
+      '</div>'+
+      '<div style="display:flex;gap:6px">'+
+      '<button onclick="restoreFromTrash(\''+esc(x.id)+'\')" style="flex:1;padding:7px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:7px;color:var(--gr);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">&#x21A9; Restore</button>'+
+      '<button onclick="permDelete(\''+esc(x.id)+'\')" style="flex:1;padding:7px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:7px;color:var(--rd);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">&#x1F5D1; Delete Forever</button>'+
+      '</div></div>';
+  }).join(''):'<div class="empty"><div style="font-size:40px;opacity:.3">&#x1F5D1;</div><div style="font-size:15px;font-weight:700;color:var(--t2);margin-top:8px">Trash is empty</div><div style="font-size:12px;color:var(--t3);margin-top:4px">Deleted chalans appear here for 5 days</div></div>';
+  showOvl(html,'Trash Bin ('+trash.length+')');
+}
+
+// ═══════════════ HISTORY ═══════════════
+function openHistory(){
+  var sorted=DB.slice().sort(function(a,b){
+    return new Date(b.createdAt||b.updatedAt||0)-new Date(a.createdAt||a.updatedAt||0);
+  });
+  var groups={};
+  sorted.forEach(function(cc){
+    var dt=new Date(cc.createdAt||cc.updatedAt||0);
+    var key=dt.toLocaleDateString('en-IN',{weekday:'short',day:'2-digit',month:'long',year:'numeric'});
+    if(!groups[key])groups[key]=[];
+    groups[key].push({c:cc,tm:dt.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true})});
+  });
+  var html=Object.entries(groups).map(function(e){
+    var dateStr=e[0],items=e[1];
+    return '<div style="margin-bottom:16px">'+
+      '<div style="font-size:11px;font-weight:700;color:var(--ac);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--bd)">'+
+      esc(dateStr)+' · '+items.length+' challan'+(items.length!==1?'s':'')+'</div>'+
+      items.map(function(x){
+        var st=getStatus(x.c);
+        var col=st==='received'?'var(--gr)':st==='partial'?'var(--ac)':'var(--or)';
+        return '<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--s2);border-radius:8px;margin-bottom:4px;cursor:pointer" onclick="closeOvl();openDetail(\''+esc(x.c.id)+'\')" >'+
+          '<div><div style="font-size:14px;font-weight:700">'+esc(x.c.party)+'</div>'+
+          '<div style="font-size:11px;color:var(--t3)">Ch# '+esc(x.c.chalanNo)+' · '+x.c.items.length+' item'+(x.c.items.length!==1?'s':'')+'</div></div>'+
+          '<div style="text-align:right">'+
+          '<div style="font-size:11px;font-weight:600;color:'+col+'">'+st.charAt(0).toUpperCase()+st.slice(1)+'</div>'+
+          '<div style="font-size:11px;color:var(--t3)">'+esc(x.tm)+'</div></div></div>';
+      }).join('')+'</div>';
+  }).join('');
+  if(!html)html='<div class="empty"><div style="font-size:36px;opacity:.3">&#x1F4DC;</div><div style="font-size:15px;font-weight:700;color:var(--t2);margin-top:8px">No history yet</div></div>';
+  showOvl(html,'Challan History ('+DB.length+')');
+}
+
+
+function sharePartyAll(party){
+  var chalans=DB.filter(function(x){return x.party===party;});
+  if(!chalans.length){toast('No chalans for this party');return;}
+  var totItems=chalans.reduce(function(s,c){return s+c.items.length;},0);
+  var recItems=chalans.reduce(function(s,c){return s+c.items.filter(function(i){return i.received;}).length;},0);
+  var totVal=chalans.reduce(function(s,c){return s+cTotal(c).balance;},0);
+  var lines=['*'+party+'* — Party Summary','Chalans: '+chalans.length+' | Items: '+totItems+' | Received: '+recItems,''];
+  chalans.slice(0,10).forEach(function(c){
+    var st=getStatus(c);
+    lines.push('Ch# '+c.chalanNo+' ('+toDisplay(c.date)+') — '+(st==='received'?'✅':(st==='partial'?'🔶':'⏳'))+' '+st.charAt(0).toUpperCase()+st.slice(1));
+  });
+  if(chalans.length>10)lines.push('... and '+(chalans.length-10)+' more');
+  if(totVal>0){lines.push('');lines.push('*Total Value: ₹'+totVal.toLocaleString('en-IN')+'*');}
+  window.open('https://wa.me/?text='+encodeURIComponent(lines.join('\n')),'_blank');
+}
+
+
+// ═══════════════ DASHBOARD ═══════════════
+function openDashboard(){
+  var dbF=ls('nc_dr_f')||'',dbT=ls('nc_dr_t')||'';
+  var DDB=DB.filter(function(ch){return(!dbF||ch.date>=dbF)&&(!dbT||ch.date<=dbT);});
+  var allItems=DDB.flatMap(function(ch){return ch.items;});
+  var totCh=DDB.length;
+  var totI=allItems.length;
+  var recI=allItems.filter(function(i){return i.received;}).length;
+  var penI=totI-recI;
+  var totVal=DDB.reduce(function(s,ch){return s+cTotal(ch).net;},0);
+  var parties=[...new Set(DDB.map(function(c){return c.party;}))];
+  // Party-wise data for pie chart
+  var pm={};
+  DDB.forEach(function(ch){
+    if(!pm[ch.party])pm[ch.party]={ch:0,items:0,rec:0,val:0};
+    pm[ch.party].ch++;
+    pm[ch.party].items+=ch.items.length;
+    pm[ch.party].rec+=ch.items.filter(function(i){return i.received;}).length;
+    pm[ch.party].val+=cTotal(ch).net;
+  });
+  var partyEntries=Object.entries(pm).sort(function(a,b){return b[1].items-a[1].items;});
+  // Monthly challan counts (last 6 months)
+  var months={};
+  DDB.forEach(function(ch){
+    var d=new Date(ch.createdAt||ch.updatedAt||ch.date||0);
+    var key=d.getFullYear()+'-'+(d.getMonth()+1).toString().padStart(2,'0');
+    var lbl=d.toLocaleDateString('en-IN',{month:'short',year:'2-digit'});
+    if(!months[key])months[key]={lbl:lbl,count:0};
+    months[key].count++;
+  });
+  var monthArr=Object.entries(months).sort(function(a,b){return a[0]>b[0]?1:-1;}).slice(-6);
+  var maxM=Math.max.apply(null,monthArr.map(function(e){return e[1].count;})||[1]);
+
+  // Pie chart colors
+  var COLORS=['#f59e0b','#10b981','#3b82f6','#ef4444','#8b5cf6','#f97316','#06b6d4','#ec4899','#84cc16','#14b8a6'];
+  // Build pie chart SVG
+  var total=partyEntries.reduce(function(s,e){return s+e[1].items;},0)||1;
+  var pieSlices='';var legends='';var startAngle=0;
+  var showParties=partyEntries; // all parties in pie
+  showParties.forEach(function(e,i){
+    var pct=e[1].items/total;
+    var angle=pct*2*Math.PI;
+    var x1=100+90*Math.sin(startAngle),y1=100-90*Math.cos(startAngle);
+    var x2=100+90*Math.sin(startAngle+angle),y2=100-90*Math.cos(startAngle+angle);
+    var large=angle>Math.PI?1:0;
+    var col=COLORS[i%COLORS.length];
+    pieSlices+='<path d="M100,100 L'+x1.toFixed(1)+','+y1.toFixed(1)+' A90,90 0 '+large+',1 '+x2.toFixed(1)+','+y2.toFixed(1)+' Z" fill="'+col+'" opacity="0.9"/>';
+    // Donut hole
+    var pctStr=Math.round(pct*100)+'%';
+    legends+='<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">'+
+      '<div style="width:10px;height:10px;border-radius:2px;background:'+col+';flex-shrink:0"></div>'+
+      '<div style="font-size:12px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(e[0])+'</div>'+
+      '<div style="font-size:11px;color:var(--t3);font-weight:700">'+pctStr+'</div></div>';
+    startAngle+=angle;
+  });
+  // all parties shown - scrollable
+  var pieSVG='<svg viewBox="0 0 200 200" style="width:150px;height:150px;flex-shrink:0">'+pieSlices+
+    '<circle cx="100" cy="100" r="55" fill="var(--sf)"/>'+
+    '<text x="100" y="96" text-anchor="middle" font-size="14" font-weight="900" fill="var(--t1)">'+totI+'</text>'+
+    '<text x="100" y="112" text-anchor="middle" font-size="9" fill="var(--t3)">Total Items</text>'+
+    '</svg>';
+
+  // Build bar chart for monthly challan additions
+  var barW=monthArr.length>0?Math.floor(280/monthArr.length)-4:40;
+  var bars=monthArr.map(function(e){
+    var h=maxM>0?Math.round((e[1].count/maxM)*70):0;
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex:1">'+
+      '<div style="font-size:10px;color:var(--t2);font-weight:700">'+e[1].count+'</div>'+
+      '<div style="width:100%;height:'+h+'px;background:linear-gradient(180deg,var(--ac),rgba(245,158,11,.3));border-radius:4px 4px 0 0;min-height:4px"></div>'+
+      '<div style="font-size:9px;color:var(--t3);text-align:center">'+e[1].lbl+'</div></div>';
+  }).join('');
+
+  // Received vs Pending bar per party
+  var partyBars=partyEntries.map(function(e){
+    var pct=e[1].items>0?Math.round(e[1].rec/e[1].items*100):0;
+    return '<div style="margin-bottom:8px">'+
+      '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px">'+
+      '<span style="font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px">'+esc(e[0])+'</span>'+
+      '<span style="color:var(--t3)">'+e[1].rec+'/'+e[1].items+'</span></div>'+
+      '<div style="height:8px;background:var(--s3);border-radius:4px;overflow:hidden">'+
+      '<div style="height:100%;width:'+pct+'%;background:linear-gradient(90deg,var(--gr),#059669);border-radius:4px"></div></div>'+
+      '</div>';
+  }).join('');
+
+  var drDateHtml=
+    '<div style="background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">'+
+    '<span style="font-size:11px;color:var(--t3);font-weight:600">Filter:</span>'+
+    '<input type="date" class="fi dr-date" value="'+esc(dbF)+'" onchange="lsw(\'nc_dr_f\',this.value);openDashboard()" onkeydown="return false" style="flex:1;min-width:100px;padding:5px 7px;font-size:12px"/>'+
+    '<span style="font-size:11px;color:var(--t3)">to</span>'+
+    '<input type="date" class="fi dr-date" value="'+esc(dbT)+'" onchange="lsw(\'nc_dr_t\',this.value);openDashboard()" onkeydown="return false" style="flex:1;min-width:100px;padding:5px 7px;font-size:12px"/>'+
+    (dbF||dbT?'<button onclick="lsw(\'nc_dr_f\',\'\');lsw(\'nc_dr_t\',\'\');openDashboard()" style="padding:5px 10px;background:var(--s3);border:1px solid var(--bd2);border-radius:6px;cursor:pointer;color:var(--t2);font-size:11px;font-family:inherit">Clear</button>':'')+
+    '</div>'+
+    (dbF||dbT?'<div style="font-size:11px;color:var(--or);margin-bottom:8px">Showing: '+(dbF?toDisplay(dbF):'All')+' – '+(dbT?toDisplay(dbT):'All')+'</div>':'');
+
+  var html= drDateHtml+
+    // Top stats
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px">'+
+    '<div style="background:var(--s2);border-radius:10px;padding:10px;text-align:center">'+
+    '<div style="font-size:22px;font-weight:900;color:var(--ac)">'+totCh+'</div><div style="font-size:9px;color:var(--t3);text-transform:uppercase">Chalans</div></div>'+
+    '<div style="background:var(--s2);border-radius:10px;padding:10px;text-align:center">'+
+    '<div style="font-size:22px;font-weight:900;color:var(--t1)">'+parties.length+'</div><div style="font-size:9px;color:var(--t3);text-transform:uppercase">Parties</div></div>'+
+    '<div style="background:var(--s2);border-radius:10px;padding:10px;text-align:center">'+
+    '<div style="font-size:22px;font-weight:900;color:var(--gr)">'+(totI>0?Math.round(recI/totI*100):0)+'%</div><div style="font-size:9px;color:var(--t3);text-transform:uppercase">Received</div></div>'+
+    '</div>'+
+    (totVal>0?'<div style="background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(245,158,11,.06));border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:12px 14px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">'+
+    '<span style="font-size:12px;color:var(--t3)">Total Net Value</span>'+
+    '<span style="font-size:20px;font-weight:900;color:var(--ac)">&#x20B9;'+totVal.toLocaleString('en-IN')+'</span></div>':'')+
+    // Pie chart section
+    '<div class="psec">Party-wise Item Distribution</div>'+
+    '<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px">'+
+    '<div style="display:flex;gap:14px;align-items:center">'+
+    pieSVG+
+    '<div style="flex:1;min-width:0;max-height:160px;overflow-y:auto">'+legends+'</div></div>'+
+    '<div style="margin-top:10px">'+
+    '<div class="psec" style="margin:8px 0 6px">Received vs Pending by Party (All '+partyEntries.length+')</div>'+
+    '<div style="max-height:220px;overflow-y:auto">'+partyBars+'</div>'+'</div></div>'+
+    // Monthly bar chart
+    (monthArr.length>0?
+    '<div class="psec">Monthly Challan Activity</div>'+
+    '<div style="background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px">'+
+    '<div style="display:flex;align-items:flex-end;gap:4px;height:100px;padding:0 4px">'+bars+'</div></div>':'');
+
+  showOvl(html,'Dashboard',null,'openProfile');
+}
+
+// ═══════════════ EXPORT PDF OPTIONS ═══════════════
+function openExportPDFOptions(){
+  var parties=[...new Set(DB.map(function(c){return c.party;}))].sort();
+  var opts=parties.map(function(p){
+    return '<label style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--s2);border-radius:8px;cursor:pointer">'+
+      '<input type="checkbox" class="pdf-party-chk" value="'+esc(p)+'" style="width:16px;height:16px;accent-color:var(--ac)"/>'+
+      '<span style="font-size:13px;font-weight:600">'+esc(p)+'</span>'+
+      '<span style="font-size:11px;color:var(--t3);margin-left:auto">'+DB.filter(function(c){return c.party===p;}).length+' chalans</span>'+
+      '</label>';
+  }).join('');
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm"><div class="cfmbox" style="max-width:380px;max-height:80vh;display:flex;flex-direction:column">'+
+    '<div class="cfmtit" style="margin-bottom:4px">Export PDF</div>'+
+    '<div style="font-size:12px;color:var(--t3);margin-bottom:12px">Select parties to include</div>'+
+    '<div style="display:flex;gap:6px;margin-bottom:10px">'+
+    '<button onclick="selectAllPDFParties(true)" style="flex:1;padding:6px;background:var(--s2);border:1px solid var(--bd);border-radius:7px;cursor:pointer;color:var(--t2);font-size:12px;font-family:inherit">Select All</button>'+
+    '<button onclick="selectAllPDFParties(false)" style="flex:1;padding:6px;background:var(--s2);border:1px solid var(--bd);border-radius:7px;cursor:pointer;color:var(--t2);font-size:12px;font-family:inherit">Clear All</button>'+
+    '</div>'+
+    '<div style="overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:4px;margin-bottom:12px">'+opts+'</div>'+
+    '<div class="cfmact">'+
+    '<button class="btn btns" onclick="document.getElementById(\'OVL\').innerHTML=\'\'" >Cancel</button>'+
+    '<button class="btn btnp" onclick="doExportPDF()">&#x1F5A8; Export PDF</button>'+
+    '</div></div></div>';
+}
+function selectAllPDFParties(v){document.querySelectorAll('.pdf-party-chk').forEach(function(el){el.checked=v;});}
+function doExportPDF(){
+  var checked=[...document.querySelectorAll('.pdf-party-chk:checked')].map(function(el){return el.value;});
+  if(!checked.length){toast('Select at least one party');return;}
+  document.getElementById('OVL').innerHTML='';
+  // Print detailed statement for each selected party (same as party card print)
+  var allHTML=checked.map(function(party){
+    var chalans=DB.filter(function(ch){return ch.party===party;}).sort(function(a,b){return(a.date||'')>(b.date||'')?1:-1;});
+    if(!chalans.length)return '';
+    return buildPartyStatement(party,chalans,'','');
+  }).filter(Boolean).join('');
+  if(!allHTML){toast('No chalans found');return;}
+  doPrint(allHTML);
+}
+
+
+// ══════════════ MULTI-SELECT ══════════════
+function cardClick(el,event){
+  var id=el.dataset.id;
+  if(MSEL){toggleMSel(id,event);}else{openDetail(id);}
+}
+function enterMSel(id){
+  MSEL=true;selSet=new Set();
+  if(id)selSet.add(id);
+  document.getElementById('MBTN').classList.add('show');
+  render();
+}
+function exitMSel(){
+  MSEL=false;selSet=new Set();
+  document.getElementById('MBTN').classList.remove('show');
+  render();
+}
+function toggleMSel(id,e){
+  if(!MSEL){enterMSel(id);return;}
+  e.stopPropagation();
+  if(selSet.has(id))selSet.delete(id);else selSet.add(id);
+  if(selSet.size===0){exitMSel();return;}
+  render();
+}
+function openMSelMenu(){
+  if(selSet.size===0){exitMSel();return;}
+  var n=selSet.size;
+  var ids=[...selSet];
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm"><div class="cfmbox" style="max-width:320px">'+
+    '<div class="cfmtit" style="margin-bottom:4px">'+n+' Challan'+(n>1?'s':'')+' Selected</div>'+
+    '<div style="font-size:12px;color:var(--t3);margin-bottom:14px">Choose an action</div>'+
+    '<div style="display:flex;flex-direction:column;gap:7px">'+
+    mkMBtn('&#x2713; Mark All Received','var(--gr)','rgba(16,185,129,.1)','rgba(16,185,129,.3)','mselMarkReceived()')+
+    mkMBtn('&#x1F4B0; Mark as Paid','#22c55e','rgba(34,197,94,.1)','rgba(34,197,94,.3)','mselMarkPaid()')+
+    mkMBtn('&#x21BA; Mark as Unpaid','var(--t2)','var(--s2)','var(--bd)','mselMarkUnpaid()')+
+    mkMBtn('&#x2718; Mark All Pending','var(--or)','rgba(249,115,22,.1)','rgba(249,115,22,.3)','mselMarkPending()')+
+    mkMBtn('&#x1F5A8; Print Selected','var(--t1)','var(--s2)','var(--bd)','mselPrint()')+
+    mkMBtn('&#x1F4E4; Export CSV','var(--bl)','rgba(59,130,246,.1)','rgba(59,130,246,.3)','mselExportCSV()')+
+    mkMBtn('&#x1F5D1; Move to Trash','var(--or)','rgba(249,115,22,.08)','rgba(249,115,22,.25)','mselTrash()')+
+    mkMBtn('&#x26D4; Delete Permanently','var(--rd)','rgba(239,68,68,.08)','rgba(239,68,68,.25)','mselPermDel()')+
+    '</div>'+
+    '<button class="btn btns" style="width:100%;margin-top:10px" onclick="document.getElementById(\'OVL\').innerHTML=\'\';exitMSel()">Cancel</button>'+
+    '</div></div>';
+}
+function mkMBtn(label,col,bg,border,fn){
+  return '<button onclick="document.getElementById(\'OVL\').innerHTML=\'\';'+fn+'" style="padding:11px 14px;background:'+bg+';border:1px solid '+border+';border-radius:9px;cursor:pointer;color:'+col+';font-family:inherit;font-size:14px;font-weight:600;text-align:left;width:100%">'+label+'</button>';
+}
+function mselMarkReceived(){
+  DB=DB.map(function(ch){
+    if(!selSet.has(ch.id))return ch;
+    return Object.assign({},ch,{items:ch.items.map(function(i){return Object.assign({},i,{received:true,receivedDate:today()});})});
+  });
+  persist();toast('Marked received: '+selSet.size);exitMSel();
+}
+function mselMarkPending(){
+  DB=DB.map(function(ch){
+    if(!selSet.has(ch.id))return ch;
+    return Object.assign({},ch,{items:ch.items.map(function(i){return Object.assign({},i,{received:false,receivedDate:'',});})});
+  });
+  persist();toast('Marked pending: '+selSet.size);exitMSel();
+}
+function mselMarkPaid(){
+  DB=DB.map(function(ch){if(!selSet.has(ch.id))return ch;return Object.assign({},ch,{isPaid:true,paidAt:new Date().toISOString(),updatedAt:new Date().toISOString()});});
+  persist();toast('Marked Paid: '+selSet.size+' chalans');exitMSel();
+}
+function mselMarkUnpaid(){
+  DB=DB.map(function(ch){if(!selSet.has(ch.id))return ch;return Object.assign({},ch,{isPaid:false,paidAt:'',updatedAt:new Date().toISOString()});});
+  persist();toast('Marked Unpaid: '+selSet.size);exitMSel();
+}
+function mselPrint(){
+  var chs=DB.filter(function(ch){return selSet.has(ch.id);});
+  if(!chs.length){exitMSel();return;}
+  doPrint(chs.map(chalanPrintHTML).join(''));
+  exitMSel();
+}
+function mselExportCSV(){
+  var chs=DB.filter(function(ch){return selSet.has(ch.id);});
+  if(!chs.length){exitMSel();return;}
+  var rows=[['Party','Chalan No','Date','Item','Design No','Supplier','Sup.Chalan','Qty','Unit','Rate','Amount','GST%','GST Amt','Status','Recv Date','Notes','Chalan Notes']];
+  chs.forEach(function(ch){ch.items.forEach(function(item){
+    var amt=(parseFloat(item.qty)||0)*(parseFloat(item.rate)||0);
+    var g=(parseFloat(item.gstRate)||0)*amt/100;
+    rows.push([ch.party,ch.chalanNo,toDisplay(ch.date),item.item,item.designNo||'',item.supplierNo||'',item.supplierChalanNo||'',item.qty||'',item.unit||'pcs',item.rate||'',amt||'',item.gstRate||0,g||'',item.received?'Received':'Pending',toDisplay(item.receivedDate),item.notes||'',ch.notes||'']);
+  });});
+  var csv=rows.map(function(r){return r.map(function(cell){var s=String(cell==null?'':cell);return(s.includes(',')||s.includes('"')||s.includes('\n'))?'"'+s.replace(/"/g,'""')+'"':s;}).join(',');}).join('\r\n');
+  var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download='NilanshSelected_'+toDisplay(today())+'.csv';a.click();
+  URL.revokeObjectURL(url);toast('Exported '+selSet.size+' chalans');exitMSel();
+}
+function mselTrash(){
+  var ids=[...selSet];
+  ids.forEach(function(id){
+    var ch=DB.find(function(x){return x.id===id;});
+    if(ch){var t=getTrash();t.unshift(Object.assign({},ch,{deletedAt:new Date().toISOString()}));saveTrash(t);}
+  });
+  DB=DB.filter(function(x){return!selSet.has(x.id);});
+  persist();toast('Moved '+ids.length+' to Trash');exitMSel();
+}
+function mselPermDel(){
+  // permanent delete confirmed via menu selection
+  DB=DB.filter(function(x){return!selSet.has(x.id);});
+  persist();toast('Permanently deleted '+selSet.size);exitMSel();
+}
+
+// Long press detection for touch devices
+var _lpTimer=null;
+function onCardTouchStart(e,el){
+  var id=typeof el==='string'?el:el.dataset.id;
+  _lpTimer=setTimeout(function(){_lpTimer=null;enterMSel(id);},600);
+}
+function onCardTouchEnd(){
+  if(_lpTimer){clearTimeout(_lpTimer);_lpTimer=null;}
+}
+
+
+// ═══════════════ FIND & REPLACE ═══════════════
+function openFindReplace(){
+  var parties=[...new Set(DB.map(function(ch){return ch.party;}))].sort();
+  var items=[...new Set(DB.flatMap(function(ch){return ch.items.map(function(i){return i.item;}).filter(Boolean);}))].sort();
+  var pOpts=parties.map(function(p){return '<option value="'+esc(p)+'">'+esc(p)+'</option>';}).join('');
+  var iOpts=items.map(function(it){return '<option value="'+esc(it)+'">'+esc(it)+'</option>';}).join('');
+  document.getElementById('OVL').innerHTML=
+    '<div class="cfm"><div class="cfmbox" style="max-width:400px">'+
+    '<div class="cfmtit" style="margin-bottom:6px">&#x1F50D; Find &amp; Replace</div>'+
+    '<div style="font-size:12px;color:var(--t3);margin-bottom:14px">Rename a party or item across ALL chalans at once.</div>'+
+    '<div style="display:flex;flex-direction:column;gap:12px">'+
+    '<div style="background:var(--s2);border-radius:10px;padding:12px">'+
+    '<div style="font-size:12px;font-weight:700;color:var(--ac);margin-bottom:8px">&#x1F3E2; Party Name</div>'+
+    '<div style="margin-bottom:8px"><label class="fl">Find Party</label>'+
+    '<select class="fi" id="fr_pf" style="padding:8px 10px;font-size:13px"><option value="">-- select party --</option>'+pOpts+'</select></div>'+
+    '<div style="margin-bottom:8px"><label class="fl">Replace With</label>'+
+    '<input class="fi" id="fr_pr" type="text" placeholder="New party name" style="padding:8px 10px;font-size:13px"/></div>'+
+    '<button onclick="doFRParty()" style="width:100%;padding:9px;background:var(--ac);color:#000;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit">Replace Party</button>'+
+    '</div>'+
+    '<div style="background:var(--s2);border-radius:10px;padding:12px">'+
+    '<div style="font-size:12px;font-weight:700;color:var(--bl);margin-bottom:8px">&#x1F4E6; Item Name</div>'+
+    '<div style="margin-bottom:8px"><label class="fl">Find Item</label>'+
+    '<select class="fi" id="fr_if" style="padding:8px 10px;font-size:13px"><option value="">-- select item --</option>'+iOpts+'</select></div>'+
+    '<div style="margin-bottom:8px"><label class="fl">Replace With</label>'+
+    '<input class="fi" id="fr_ir" type="text" placeholder="New item name" style="padding:8px 10px;font-size:13px"/></div>'+
+    '<button onclick="doFRItem()" style="width:100%;padding:9px;background:var(--bl);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit">Replace Item</button>'+
+    '</div>'+
+    '</div>'+
+    '<button class="btn btns" style="width:100%;margin-top:12px" onclick="closeOvl()">Close</button>'+
+    '</div></div>';
+}
+function doFRParty(){
+  var f=(document.getElementById('fr_pf')||{}).value||'';
+  var r=((document.getElementById('fr_pr')||{}).value||'').trim();
+  if(!f){toast('Select a party');return;}
+  if(!r){toast('Enter replacement name');return;}
+  if(f===r){toast('Same name');return;}
+  var n=0;
+  DB=DB.map(function(c){if(c.party!==f)return c;n++;return Object.assign({},c,{party:r,updatedAt:new Date().toISOString()});});
+  var tm=getAllTDS();if(tm[f]!==undefined){tm[r]=tm[f];delete tm[f];lsw('nc_tp',JSON.stringify(tm));}
+  var gm=getGSTParties();if(gm[f]!==undefined){gm[r]=gm[f];delete gm[f];lsw('nc_gsp',JSON.stringify(gm));}
+  persist();toast('Party renamed in '+n+' chalans ✓');openFindReplace();
+}
+function doFRItem(){
+  var f=(document.getElementById('fr_if')||{}).value||'';
+  var r=((document.getElementById('fr_ir')||{}).value||'').trim();
+  if(!f){toast('Select an item');return;}
+  if(!r){toast('Enter replacement name');return;}
+  if(f===r){toast('Same name');return;}
+  var n=0;
+  DB=DB.map(function(c){
+    var ch=false;
+    var it=c.items.map(function(i){if(i.item!==f)return i;ch=true;n++;return Object.assign({},i,{item:r});});
+    if(ch)return Object.assign({},c,{items:it,updatedAt:new Date().toISOString()});
+    return c;
+  });
+  persist();toast('Item renamed in '+n+' places ✓');openFindReplace();
+}
+
+</script>
+</body>
+</html>
